@@ -1,4 +1,5 @@
 <div class="container  col--  col-middle--  landing">
+	<img src="/images/dove.png" />
 	<span>LÉFROST IS A</span>
 	<span><b>DESIGNER.</b></span>
 	<span><b>DEVELOPER.</b></span>
@@ -19,7 +20,19 @@
 		background-color: $black;
 		color: $white;
 		padding: 2em;
-		padding-right: 4em;
+		padding-right: 3em;
+		position: relative;
+
+		> img {
+			width: calc(120px * 0.5);
+			position: absolute;
+			top: 3em;
+			right: 2em;
+
+			@media (min-width: $bp-sm) {
+				width: 120px;
+			}
+		}
 
 		> span {
 			font-size: 3.5em;
