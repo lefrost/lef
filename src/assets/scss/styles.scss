@@ -10,19 +10,19 @@
 	flex-direction: column;
 	flex-grow: 1;
 	position: relative;
-	background-color: $white;
-	color: $black;
+	background-color: $white-hex;
+	color: $black-hex;
 }
 
 :global(a) {
-	color: $black;
+	color: $black-hex;
 	text-decoration: none;
 }
 
 :global(*) {
 	outline: none;
-	margin: 0;
 	font-family: $ff-base;
+	margin: 0;
 	line-height: 0.75em;
 	scroll-behavior: smooth;
 	letter-spacing: -0.1em;
@@ -47,7 +47,7 @@
 
 /* Handle on hover */
 :global(::-webkit-scrollbar-thumb:hover) {
-	background: rgba($black, 0.8);
+	background: rgba($black-hex, 0.8);
 }
 
 /* --- Visibility --- */
@@ -103,61 +103,60 @@
 
 /* --- Container --- */
 
-@mixin container-row {
-	flex-direction: row;
-	align-items: center;
-
-	&.row-centre-- {
-		justify-content: center;
-	}
-
-	&.row-wrap-- {
-		flex-wrap: wrap;
-	}
-
-	&.row-top-- {
-		align-items: flex-start;
-	}
-
-	&.row-right-- {
-		justify-content: flex-end;
-	}
-
-	&.row-bottom-- {
-		align-items: flex-end;
-	}
-}
-
-@mixin container-col {
-	flex-direction: column;
-	align-items: flex-start;
-
-	&.col-top-- {
-		justify-content: flex-start;
-	}
-
-	&.col-centre-- {
-		align-items: center;
-	}
-
-	&.col-right-- {
-		align-items: flex-end;
-		text-align: right;
-	}
-
-	&.col-middle-- {
-		justify-content: center;
-	}
-
-	&.col-bottom-- {
-		justify-content: flex-end;
-	}
-}
-
 .container {
+	// --parent-mg: 1em;
 	display: flex;
 	@include container-row;
 	@include background;
+
+	--scr-w: 0.24em;
+	--scr-tr-a: 0.2;
+	--scr-clr: #{$white};
+	--scr-th-a: 1;
+
+	/* width */
+	&::-webkit-scrollbar {
+		width: var(--scr-w);
+	}
+
+	/* Track */
+	&::-webkit-scrollbar-track {
+		background: rgba(var(--scr-clr), var(--scr-tr-a));
+	}
+
+	/* Handle */
+	&::-webkit-scrollbar-thumb {
+		background: rgba(var(--scr-clr), var(--scr-th-a));
+		border-radius: 0.5em;
+	}
+
+	/* Handle on hover */
+	&::-webkit-scrollbar-thumb:hover {
+		background: rgba($black-hex, 0.8);
+	}
+
+	// don't set parent-mg inside .container (otherwise it'll override, won't work properly), set it in respective .svelte files instead
+
+	&.background-- {
+		width: calc(100% - $wrapper-gutter);
+		margin-top: calc(var(--parent-mg) * 2);
+		margin-left: calc(var(--parent-mg) * 2);
+
+		> div {
+			margin-top: calc(var(--parent-mg) * 2);
+			margin-left: calc(var(--parent-mg) * 2);
+			padding-bottom: calc(var(--parent-mg) * 2);
+			padding-right: calc(var(--parent-mg) * 2);
+		}
+	}
+
+	&.offset-- {
+		margin-left: calc(var(--parent-mg) * 2 * 2) !important;
+
+		@media (min-width: $bp-sm) {
+			margin-left: calc(var(--parent-mg) * 2 * 2) !important;
+		}
+	}
 
 	&.stretch-- {
 		// width: 100%;
@@ -171,6 +170,7 @@
 	&.row-sm--,
 	&.row-md--,
 	&.row-lg--,
+	&.row-xl--,
 	&.col-- {
 		@include container-col;
 	}
@@ -251,4 +251,87 @@
 	}
 
 	// @include clickable;
+}
+
+// party
+
+.party-container {
+	padding: 2em $wrapper-gutter;
+
+	&.landing-- {
+		background-color: #f9be65;
+	}
+
+	&.redeem-- {
+		background-color: #e38858;
+	}
+}
+
+.party {
+	width: 100%;
+	max-width: 400px;
+
+	* {
+		font-family: $ff-party;
+		letter-spacing: -0.04em;
+		color: $white-hex;
+		line-height: 1.1em;
+	}
+}
+
+.party-title {
+	font-size: 1.5em;
+	font-weight: bold;
+}
+
+.party-description {
+	opacity: 0.5;
+	font-size: 0.7em;
+	padding-top: 0.2em;
+}
+
+.party-back {
+	font-size: 1em;
+	font-weight: bold;
+	opacity: 0.5;
+	@include swish;
+	margin-bottom: 1.2em;
+
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+.party-textbox {
+	background-color: rgba($white-hex, 0.1);
+	border: 2px solid rgba($white-hex, 0.5);
+	color: $white-hex;
+	padding: 0.6em 0.8em;
+
+	&::placeholder {
+		color: rgba($white-hex, 0.5);
+	}
+}
+
+.party-button {
+	background-color: rgba($white-hex, 0.05);
+	border: 2px solid rgba($white-hex, 0.2);
+	padding: 0.5em;
+	padding-bottom: 0.4em;
+	cursor: pointer;
+	@include swish;
+
+	&.main-- {
+		background-color: rgba($white-hex, 0.2);
+	}
+
+	> div {
+		font-weight: bold;
+		font-size: 0.7em;
+		text-transform: uppercase;
+	}
+
+	&:hover {
+		opacity: 0.8;
+	}
 }

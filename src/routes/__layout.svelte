@@ -16,7 +16,7 @@
 	@import '../assets/scss/all.scss';
 
 	.container {
-		font-size: 12px;
+		font-size: 18px;
 	}
 
 	@media (min-width: $bp-sm) {

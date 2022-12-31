@@ -78,7 +78,7 @@
 		padding: 10px;
 		border-radius: 5px;
 		background-color: $white;
-		box-shadow: 0 0 20px 0px rgba($black, 0.2);
+		box-shadow: 0 0 20px 0px rgba($black-hex, 0.2);
 		z-index: 1;
 		border: none;
 		transition-property: transform;

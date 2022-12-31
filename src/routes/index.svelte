@@ -17,11 +17,12 @@
 
 	.landing {
 		max-width: calc(100% - $wrapper-gutter * 2);
-		background-color: $black;
-		color: $white;
+		background-color: $black-hex;
+		color: $white-hex;
 		padding: 2em;
 		padding-right: 3em;
 		position: relative;
+		font-family: $ff-base;
 
 		> img {
 			width: calc(120px * 0.5);
@@ -39,7 +40,7 @@
 		}
 
 		> a {
-			color: $white;
+			color: $white-hex;
 			font-size: 2.2em;
 			margin: 0.02em 0;
 		}
