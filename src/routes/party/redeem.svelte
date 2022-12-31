@@ -16,7 +16,9 @@
 
 	onMount(async () => {
 		await getRedemptions();
+
 		load_code = $page.url.searchParams.get(`code`);
+
 		if (load_code) {
 			findRedemption(load_code);
 		}
