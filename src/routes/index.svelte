@@ -72,7 +72,7 @@
 		* {
 			font-family: 'Red Hat Display';
 			letter-spacing: -0.02em;
-			line-height: 1.2em;
+			line-height: 1.35em;
 		}
 
 		> * {
