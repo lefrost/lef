@@ -48,7 +48,7 @@
 
 		<a href="https://twitter.com/lefrst" target="_blank" class="me-bottom__link">tweets</a>
 
-		<a href="https://anilist.co/lefrost" target="_blank" class="me-bottom__link">manga</a>
+		<a href="https://anilist.co/user/lefrost" target="_blank" class="me-bottom__link">manga</a>
 
 		<a href="https://github.com/lefrst" target="_blank" class="me-bottom__link">github</a>
 
