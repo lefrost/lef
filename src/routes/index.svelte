@@ -50,6 +50,8 @@
 
 		<a href="https://anilist.co/user/lefrost" target="_blank" class="me-bottom__link">manga</a>
 
+		<a href="https://www.last.fm/user/lefrst" target="_blank" class="me-bottom__link">music</a>
+
 		<a href="https://github.com/lefrst" target="_blank" class="me-bottom__link">github</a>
 
 		<div class="me-bottom__text">lefrost#0001</div>
