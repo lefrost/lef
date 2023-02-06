@@ -52,6 +52,9 @@
 
 		<a href="https://www.last.fm/user/lefrst" target="_blank" class="me-bottom__link">music</a>
 
+		<a href="https://www.chess.com/member/lefroste" target="_blank" class="me-bottom__link">chess</a
+		>
+
 		<a href="https://github.com/lefrst" target="_blank" class="me-bottom__link">github</a>
 
 		<div class="me-bottom__text">lefrost#0001</div>
