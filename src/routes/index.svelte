@@ -1,3 +1,7 @@
+<script lang="ts">
+	//
+</script>
+
 <div class="container  grow--  stretch--  col--  col-right--  col-middle--  me">
 	<div class="container  grow--  col--  col-right--  me-texts">
 		<div class="me-text">i'm lé ✌️</div>
