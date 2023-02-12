@@ -22,8 +22,8 @@
 		</div>
 
 		<div class="me-text">
-			i enjoy quiet cafés, impressionist jazz, and a good romance manga. find me on twitter or
-			discord.
+			i enjoy quiet cafés, impressionist jazz, casual chess, and a good romance manga. find me on
+			twitter or discord.
 		</div>
 	</div>
 
