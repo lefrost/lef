@@ -295,13 +295,17 @@
 		border-radius: 0.4em;
 		padding: 1.1em 1.2em;
 		width: calc(100% - 1.2em * 2);
-		max-width: calc(320px - 1.2em * 2);
+		max-width: calc(250px - 1.2em * 2);
 		margin-right: 1.2em;
 		margin-bottom: 1.2em;
 		@include swish;
 
 		&:hover {
 			border: 0.1em solid rgba(#5892E8, 0.2);
+		}
+
+		@media (min-width: $bp-sm) {
+			max-width: calc(320px - 1.2em * 2);
 		}
 	}
 
