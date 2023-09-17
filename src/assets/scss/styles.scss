@@ -23,9 +23,11 @@
 	outline: none;
 	font-family: $ff-base;
 	margin: 0;
-	line-height: 0.75em;
 	scroll-behavior: smooth;
-	letter-spacing: -0.1em;
+	// line-height: 0.75em;
+	// letter-spacing: -0.1em;
+	letter-spacing: -0.05em;
+	line-height: 1.15em;
 	-webkit-tap-highlight-color: transparent;
 }
 

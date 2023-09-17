@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap');
 
 @font-face {
 	font-family: 'Jost';
@@ -19,7 +20,7 @@
 
 $white-hex: #fff;
 $white: 255, 255, 255;
-$black-hex: #0e0e0e;
+$black-hex: #000000;
 $black: 0, 0, 0;
 $wrapper-gutter: 20px;
 $wrapper-width: 1200px;
@@ -32,7 +33,7 @@ $bp-md: 800px;
 $bp-lg: 1024px;
 $bp-xl: 1280px;
 
-$ff-base: 'Jost';
+$ff-base: 'Lexend';
 $ff-alpha: 'Jost';
 $ff-style: 'Jost';
 $ff-party: 'Unbounded';
