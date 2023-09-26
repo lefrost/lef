@@ -27,6 +27,13 @@
 		{
 			link_url: ``,
 			image_url: ``,
+			name: `Buggy`,
+			description: `Work in progress...`,
+			is_active: false
+		},
+		{
+			link_url: ``,
+			image_url: ``,
 			name: `Fareast`,
 			description: `Work in progress...`,
 			is_active: false
