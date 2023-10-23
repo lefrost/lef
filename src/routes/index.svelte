@@ -9,7 +9,7 @@
 		Quiet
 		cafes,
 		casual
-		<a href="https://chess.com/lefrost" target="_blank" rel="noreferrer">chess</a>,
+		<a href="https://chess.com/member/lefroste" target="_blank" rel="noreferrer">chess</a>,
 		and classy
 		<a href="https://last.fm/user/lefrst" target="_blank" rel="noreferrer">jazz</a>.
 		Many episodes of
