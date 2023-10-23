@@ -26,8 +26,8 @@
 	scroll-behavior: smooth;
 	// line-height: 0.75em;
 	// letter-spacing: -0.1em;
-	letter-spacing: -0.05em;
-	line-height: 1.15em;
+	letter-spacing: -0.01em;
+	line-height: 1.25em;
 	-webkit-tap-highlight-color: transparent;
 }
 
@@ -253,87 +253,4 @@
 	}
 
 	// @include clickable;
-}
-
-// party
-
-.party-container {
-	padding: 2em $wrapper-gutter;
-
-	&.landing-- {
-		background-color: #f9be65;
-	}
-
-	&.redeem-- {
-		background-color: #e38858;
-	}
-}
-
-.party {
-	width: 100%;
-	max-width: 400px;
-
-	* {
-		font-family: $ff-party;
-		letter-spacing: -0.04em;
-		color: $white-hex;
-		line-height: 1.1em;
-	}
-}
-
-.party-title {
-	font-size: 1.5em;
-	font-weight: bold;
-}
-
-.party-description {
-	opacity: 0.5;
-	font-size: 0.7em;
-	padding-top: 0.2em;
-}
-
-.party-back {
-	font-size: 1em;
-	font-weight: bold;
-	opacity: 0.5;
-	@include swish;
-	margin-bottom: 1.2em;
-
-	&:hover {
-		opacity: 0.8;
-	}
-}
-
-.party-textbox {
-	background-color: rgba($white-hex, 0.1);
-	border: 2px solid rgba($white-hex, 0.5);
-	color: $white-hex;
-	padding: 0.6em 0.8em;
-
-	&::placeholder {
-		color: rgba($white-hex, 0.5);
-	}
-}
-
-.party-button {
-	background-color: rgba($white-hex, 0.05);
-	border: 2px solid rgba($white-hex, 0.2);
-	padding: 0.5em;
-	padding-bottom: 0.4em;
-	cursor: pointer;
-	@include swish;
-
-	&.main-- {
-		background-color: rgba($white-hex, 0.2);
-	}
-
-	> div {
-		font-weight: bold;
-		font-size: 0.7em;
-		text-transform: uppercase;
-	}
-
-	&:hover {
-		opacity: 0.8;
-	}
 }
