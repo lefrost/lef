@@ -21,7 +21,7 @@
 		many hours of
 		travel.
 		And in between, there's
-		<a href="https://github.io/lefrost" target="_blank" rel="noreferrer">code</a>,
+		<a href="https://github.com/lefrost" target="_blank" rel="noreferrer">code</a>,
 		design,
 		and a couple commitments to show for it.
 		<br /><br /><br /><br />
@@ -51,7 +51,7 @@
 		max-width: 350px;
 		opacity: 0.7;
 		text-align: left;
-		font-size: 18px;
+		font-size: 0.8em;
 
 		> a {
 			text-decoration: underline;
