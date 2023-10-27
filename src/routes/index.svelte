@@ -20,9 +20,9 @@
 		gaming,
 		many miles of
 		travel.
-		And in between, there's
+		And in between, there's pragmatic
 		<a href="https://github.com/lefrost" target="_blank" rel="noreferrer">code</a>,
-		design,
+		experimental design,
 		and a couple commitments to show for it.
 		<br /><br /><br /><br />
 		My portfolio as a solo founder, in descending order by size of scope:
