@@ -10,12 +10,12 @@
 	flex-direction: column;
 	flex-grow: 1;
 	position: relative;
-	background-color: $white-hex;
-	color: $black-hex;
+	background-color: $black-hex;
+	color: $white-hex;
 }
 
 :global(a) {
-	color: $black-hex;
+	color: $white-hex;
 	text-decoration: none;
 }
 
@@ -27,7 +27,7 @@
 	// line-height: 0.75em;
 	// letter-spacing: -0.1em;
 	letter-spacing: -0.01em;
-	line-height: 1.25em;
+	line-height: 1em;
 	-webkit-tap-highlight-color: transparent;
 }
 

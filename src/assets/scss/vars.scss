@@ -18,15 +18,12 @@
 	src: url('/fonts/Barndomsfirkante.ttf') format('truetype');
 }
 
-$white-hex: #fff;
-$white: 255, 255, 255;
-$black-hex: #000000;
-$black: 0, 0, 0;
+$white-hex: #FFFBE8;
+$white: 255, 251, 232;
+$black-hex: #0C0C0C;
+$black: 12, 12, 12;
 $wrapper-gutter: 20px;
 $wrapper-width: 1200px;
-
-$me-black: #090909;
-$me-white: #f8cfd9;
 
 $bp-sm: 640px;
 $bp-md: 800px;
