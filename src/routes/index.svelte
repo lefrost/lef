@@ -10,7 +10,7 @@
     {
       code: `@SUAVESEALS`,
       name: `Suave Seals`,
-      description: `Solana NFT collection that earns revenue from the Suave Arcade. Art created in collaboration with <a href="https://twitter.com/cderecer" target="_blank" rel="noreferrer"><u>Crsy</u></a>.`,
+      description: `Solana NFT collection that earns revenue from the Suave Arcade. Art created in collaboration with <a href="https://twitter.com/cdercer" target="_blank" rel="noreferrer"><u>Crsy</u></a>.`,
       link_text: `Marketplace`,
       link_url: `https://tensor.trade/trade/suaveseals`
     },
@@ -77,7 +77,12 @@
 
         {#if toggled_item_index === ii}
           <!-- item -> description -->
-          <div class="l-it__description">
+          <div
+            on:click|stopPropagation={() => {
+              // none
+            }}
+            class="l-it__description"
+          >
             {@html ITEM.description || ``}
           </div>
 
