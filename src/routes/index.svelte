@@ -77,12 +77,7 @@
 
         {#if toggled_item_index === ii}
           <!-- item -> description -->
-          <div
-            on:click|stopPropagation={() => {
-              // none
-            }}
-            class="l-it__description"
-          >
+          <div class="l-it__description">
             {@html ITEM.description || ``}
           </div>
 
