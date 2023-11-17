@@ -21,6 +21,13 @@
       link_text: `Website`,
       link_url: `https://bullish.lol`
     },
+    {
+      code: `INTHELOOP.FYI`,
+      name: `Loop`,
+      description: `NFT news & social as-a-service. Content produced in collaboration with <a href="https://twitter.com/the_sol_army" target="_blank" rel="noreferrer"><u>The Sol Army</u></a>.`,
+      link_text: `Website`,
+      link_url: `https://intheloop.fyi`
+    },
     // {
     //   code: `@BULLISHTSUYONEKO`,
     //   name: `Bullish Tsuyoneko`,
@@ -147,7 +154,9 @@
   // name
 
   .l-name {
-    font-size: 0.9em;
+    font-size: 0.75em;
+    opacity: 0.7;
+    letter-spacing: 0.1em;
   }
 
   // heading
@@ -187,7 +196,9 @@
   // item -> code
 
   .l-it__code {
-    font-size: 0.6em;
+    font-size: 0.55em;
+    opacity: 0.7;
+    letter-spacing: 0.1em;
   }
 
   // item -> name
@@ -200,7 +211,7 @@
   // item -> description
 
   .l-it__description {
-    font-size: 0.8em;
+    font-size: 0.75em;
     opacity: 0.5;
     padding: 0.8em 0;
   }
