@@ -21,6 +21,13 @@
       link_text: `Website`,
       link_url: `https://bullish.lol`
     },
+    // {
+    //   code: `@BULLISHTSUYONEKO`,
+    //   name: `Bullish Tsuyoneko`,
+    //   description: `Solana NFT collection that gains allowlist opportunities from Bullish. Art created in collaboration with <a href="https://twitter.com/cderecer"><u>Crsy</u></a>.`,
+    //   link_text: `Website`,
+    //   link_url: `https://tensor.trade/trade/bullishtsuyoneko`
+    // },
     {
       code: `INTHELOOP.FYI`,
       name: `Loop`,
@@ -28,13 +35,6 @@
       link_text: `Website`,
       link_url: `https://intheloop.fyi`
     },
-    // {
-    //   code: `@BULLISHTSUYONEKO`,
-    //   name: `Bullish Tsuyoneko`,
-    //   description: `Solana NFT collection that gains allowlist opportunities from Bullish. Art created in collaboration with <a href="https://twitter.com/cderecer"><u>Crsy</u></a>.`,
-    //   link_text: `Website`,
-    //   link_url: `https://tensor.trade/trade/bullishtsuyoneko`
-    // }
   ];
 
   let toggled_item_index = -1;
@@ -176,7 +176,7 @@
   // item
 
   .l-item {
-    padding: 0.9em 0.9em;
+    padding: 0.7em 0.7em;
     background-color: rgba($white-hex, 0);
     border: 0.1em solid rgba($white-hex, 0.4);
     @include swish;
