@@ -2,7 +2,7 @@
   const ITEMS = [
     {
       code: `SUAVE.LA`,
-      name: `Suave Arcade`,
+      name: `Suave.la`,
       description: `Play skill-based games for money, with wagers powered by the Solana blockchain.`,
       link_text: `Website`,
       link_url: `https://suave.la`
@@ -16,7 +16,7 @@
     },
     {
       code: `BULLISH.LOL`,
-      name: `Bullish`,
+      name: `Bullish.lol`,
       description: `Simplified allowlist collabs for NFT projects and DAOs.`,
       link_text: `Website`,
       link_url: `https://bullish.lol`
@@ -30,7 +30,7 @@
     // },
     {
       code: `INTHELOOP.FYI`,
-      name: `Loop`,
+      name: `Loop.fyi`,
       description: `NFT news & social as-a-service. Content produced in collaboration with <a href="https://twitter.com/the_sol_army" target="_blank" rel="noreferrer"><u>The Sol Army</u></a>.`,
       link_text: `Website`,
       link_url: `https://intheloop.fyi`
