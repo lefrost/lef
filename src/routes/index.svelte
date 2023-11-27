@@ -17,7 +17,7 @@
     {
       code: `BULLISH.LOL`,
       name: `Bullish.lol`,
-      description: `Simplified allowlist collabs for NFT projects and DAOs.`,
+      description: `Simplified allowlist collabs for NFT projects and communities.`,
       link_text: `Website`,
       link_url: `https://bullish.lol`
     },
