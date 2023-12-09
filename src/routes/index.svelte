@@ -21,13 +21,13 @@
       link_text: `Website`,
       link_url: `https://bullish.lol`
     },
-    // {
-    //   code: `@BULLISHTSUYONEKO`,
-    //   name: `Bullish Tsuyoneko`,
-    //   description: `Solana NFT collection that gains allowlist opportunities from Bullish. Art created in collaboration with <a href="https://twitter.com/cderecer"><u>Crsy</u></a>.`,
-    //   link_text: `Website`,
-    //   link_url: `https://tensor.trade/trade/bullishtsuyoneko`
-    // },
+    {
+      code: `@BULLISHTSUYONEKO`,
+      name: `Bullish Tsuyoneko`,
+      description: `Solana NFT collection that gains allowlist opportunities from Bullish.lol. Art created in collaboration with <a href="https://twitter.com/cderecer"><u>Crsy</u></a>.`,
+      link_text: `Marketplace`,
+      link_url: `https://tensor.trade/trade/tsuyoneko`
+    },
     {
       code: `INTHELOOP.FYI`,
       name: `Loop.fyi`,
