@@ -165,7 +165,7 @@
   // heading
 
   .l-heading {
-    font-size: 1.1em;
+    font-size: 1.2em;
     padding-top: 0.4em;
   }
 
