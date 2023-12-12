@@ -24,7 +24,7 @@
     {
       code: `@BULLISHTSUYONEKO`,
       name: `Bullish Tsuyoneko`,
-      description: `Solana NFT collection that gains allowlist opportunities from Bullish.lol. Art created in collaboration with <a href="https://twitter.com/cderecer"><u>Crsy</u></a>.`,
+      description: `Solana NFT collection that gains allowlist opportunities from Bullish.lol. Art created in collaboration with <a href="https://twitter.com/cdercer" target="_blank" rel="noreferrer"><u>Crsy</u></a>.`,
       link_text: `Marketplace`,
       link_url: `https://tensor.trade/trade/tsuyoneko`
     },
