@@ -49,11 +49,8 @@
 
   <!-- heading -->
   <div class="l-heading">
-    <!-- Portfolio as a<br />
-    solo founder. -->
-    I'm a solo founder.<br />
-    I currently run 3 projects.<br />
-    I'm creating more.
+    Portfolio as a<br />
+    solo founder.
   </div>
 
   <!-- items -->
@@ -165,7 +162,7 @@
   // heading
 
   .l-heading {
-    font-size: 1.2em;
+    font-size: 1.4em;
     padding-top: 0.4em;
   }
 
