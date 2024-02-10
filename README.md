@@ -1,4 +1,4 @@
-## 🎋 Ollesvelke
+## 🎋 Lef.la, made with Ollesvelke
 
 Personal [SvelteKit](https://kit.svelte.dev/) boilerplate. Preview on [Vercel](https://ollesvelke.vercel.app/).
 

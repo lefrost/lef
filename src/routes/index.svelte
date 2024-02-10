@@ -21,13 +21,13 @@
       link_text: `Website`,
       link_url: `https://bullish.lol`
     },
-    // {
-    //   code: `@BULLISHTSUYONEKO`,
-    //   name: `Bullish Tsuyoneko`,
-    //   description: `Solana NFT collection that gains allowlist opportunities from Bullish. Art created in collaboration with <a href="https://twitter.com/cderecer"><u>Crsy</u></a>.`,
-    //   link_text: `Website`,
-    //   link_url: `https://tensor.trade/trade/bullishtsuyoneko`
-    // },
+    {
+      code: `@BULLISHTSUYONEKO`,
+      name: `Bullish Tsuyoneko`,
+      description: `Solana NFT collection that gains allowlist opportunities from Bullish.lol. Art created in collaboration with <a href="https://twitter.com/cdercer" target="_blank" rel="noreferrer"><u>Crsy</u></a>.`,
+      link_text: `Marketplace`,
+      link_url: `https://tensor.trade/trade/tsuyoneko`
+    },
     {
       code: `INTHELOOP.FYI`,
       name: `Loop.fyi`,
@@ -131,7 +131,7 @@
 		and
 		<a href="https://twitter.com/lefrost" target="_blank" rel="noreferrer">Twitter</a>,
 		<br /><br />
-		As of February 2024.
+		As of January 2024.
   </div>
 
   <!-- quote -->
@@ -154,73 +154,73 @@
   // name
 
   .l-name {
-    font-size: 0.75em;
-    opacity: 0.7;
+    font-size: 0.65em;
+    opacity: 0.4;
     letter-spacing: 0.1em;
   }
 
   // heading
 
   .l-heading {
-    font-size: 1.8em;
-    padding-top: 0.2em;
+    font-size: 1.4em;
+    padding-top: 0.4em;
   }
 
   // items
 
   .l-items {
-    padding: 2.5em 0;
-    @include parent-col-bottom(0.6em);
+    padding: 2em 0;
+    @include parent-col-bottom(0.5em);
   }
 
   // item
 
   .l-item {
-    padding: 0.7em 0.7em;
+    padding: 0.5em 0.5em;
     background-color: rgba($white-hex, 0);
-    border: 0.1em solid rgba($white-hex, 0.4);
+    border: 0.08em solid rgba($white-hex, 0.2);
     @include swish;
     cursor: pointer;
 
     &.l-toggled-- {
       background-color: rgba($white-hex, 0.05);
-      border: 0.1em solid rgba($white-hex, 0.8);
+      border: 0.08em solid rgba($white-hex, 0.4);
     }
 
     &:hover {
       background-color: rgba($white-hex, 0.1);
-      border: 0.1em solid rgba($white-hex, 1);
+      border: 0.08em solid rgba($white-hex, 1);
     }
   }
 
   // item -> code
 
   .l-it__code {
-    font-size: 0.55em;
-    opacity: 0.7;
+    font-size: 0.45em;
+    opacity: 0.3;
     letter-spacing: 0.1em;
   }
 
   // item -> name
 
   .l-it__name {
-    font-size: 1.2em;
-    padding-top: 0.05em;
+    font-size: 0.9em;
+    padding-top: 0.1em;
   }
 
   // item -> description
 
   .l-it__description {
-    font-size: 0.75em;
+    font-size: 0.7em;
     opacity: 0.5;
-    padding: 0.8em 0;
+    padding: 0.6em 0;
   }
 
   // item -> link
 
   .l-it__link {
-    font-size: 0.8em;
-    text-decoration: underline;
+    font-size: 0.7em;
+    // text-decoration: underline;
     @include swish;
 
     &:hover {
@@ -231,11 +231,12 @@
   // text
 
   .l-text {
-    font-size: 0.85em;
+    font-size: 0.72em;
     line-height: 1.2em;
-
+    color: rgba($white-hex, 0.6);
     > a {
-      text-decoration: underline;
+      color: rgba($white-hex, 0.9);
+      // text-decoration: underline;
       @include swish;
       
       &:hover {
@@ -247,7 +248,8 @@
   // quote
 
   .l-quote {
-    font-size: 1em;
-    padding-top: 2.5em;
+    font-size: 0.52em;
+    padding-top: 3em;
+    opacity: 0.2;
   }
 </style>
