@@ -131,7 +131,7 @@
 		and
 		<a href="https://twitter.com/lefrost" target="_blank" rel="noreferrer">Twitter</a>,
 		<br /><br />
-		As of November 2023.
+		As of February 2024.
   </div>
 
   <!-- quote -->
