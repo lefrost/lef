@@ -1,7 +1,18 @@
+@import './mixins.scss';
+
 :global(html) {
 	display: flex;
 	flex-direction: column;
 	min-height: 100%;
+	// cursor: url('/images/commons/cursors/default.png'), auto;
+
+	.card:hover {
+		// cursor: url('/images/commons/cursors/hover.png'), auto;
+	}
+
+	.input:hover {
+		// cursor: url('/images/commons/cursors/input.png'), auto;
+	}
 }
 
 :global(body),
@@ -15,19 +26,17 @@
 }
 
 :global(a) {
-	color: $white-hex;
+	color: inherit;
 	text-decoration: none;
 }
 
 :global(*) {
 	outline: none;
-	font-family: $ff-base;
 	margin: 0;
+	font-family: $ff-base;
+	line-height: 1;
 	scroll-behavior: smooth;
-	// line-height: 0.75em;
-	// letter-spacing: -0.1em;
-	letter-spacing: -0.01em;
-	line-height: 1em;
+	letter-spacing: -0.02em;
 	-webkit-tap-highlight-color: transparent;
 }
 
@@ -38,42 +47,56 @@
 
 /* Track */
 :global(::-webkit-scrollbar-track) {
-	background: transparent;
+	background: $black-hex;
 }
 
 /* Handle */
 :global(::-webkit-scrollbar-thumb) {
-	background: $black;
+	background: rgba($white-hex, 0.05);
 	border-radius: 0.5em;
 }
 
 /* Handle on hover */
 :global(::-webkit-scrollbar-thumb:hover) {
-	background: rgba($black-hex, 0.8);
+	background: rgba($white-hex, 0.1);
 }
 
 /* --- Visibility --- */
 
 .visibility {
-	display: none !important;
+	&, &.v-inline-- {
+		display: none !important;
+	}
 
 	&.sm-down--,
 	&.md-down--,
-	&.lg-down-- {
+	&.lg-down--,
+	&.xl-down-- {
 		display: flex !important;
+
+		&.v-inline-- {
+			display: inline !important;
+		}
 	}
 }
 
 @media (min-width: $bp-sm) {
 	.visibility {
 		&.sm-down-- {
-			display: none !important;
+			&, &.v-inline-- {
+				display: none !important;
+			}
 		}
 
 		&.sm-up--,
 		&.md-down--,
-		&.lg-down-- {
+		&.lg-down--,
+		&.xl-down-- {
 			display: flex !important;
+
+			&.v-inline-- {
+				display: inline !important;
+			}
 		}
 	}
 }
@@ -81,12 +104,19 @@
 @media (min-width: $bp-md) {
 	.visibility {
 		&.md-down-- {
-			display: none !important;
+			&, &.v-inline-- {
+				display: none !important;
+			}
 		}
 
 		&.md-up--,
-		&.lg-down-- {
+		&.lg-down--,
+		&.xl-down-- {
 			display: flex !important;
+
+			&.v-inline-- {
+				display: inline !important;
+			}
 		}
 	}
 }
@@ -94,11 +124,36 @@
 @media (min-width: $bp-lg) {
 	.visibility {
 		&.lg-down-- {
-			display: none !important;
+			&, &.v-inline-- {
+				display: none !important;
+			}
 		}
 
-		&.lg-up-- {
+		&.lg-up--,
+		&.xl-down-- {
 			display: flex !important;
+
+			&.v-inline-- {
+				display: inline !important;
+			}
+		}
+	}
+}
+
+@media (min-width: $bp-xl) {
+	.visibility {
+		&.xl-down-- {
+			&, &.v-inline-- {
+				display: none !important;
+			}
+		}
+
+		&.xl-up--{
+			display: flex !important;
+
+			&.v-inline-- {
+				display: inline !important;
+			}
 		}
 	}
 }
@@ -230,27 +285,253 @@
 	}
 }
 
-/* --- block --- */
+// ---- Text
 
-.block {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	min-height: calc(100vh - #{$header-height} - #{$footer-height});
-	@include background;
+.text {
+	--text-colour: #{$white};
 
-	&.half-- {
-		min-height: calc(50vh - #{$header-height} - #{$footer-height});
+	color: rgb(var(--text-colour));
+	// text-shadow: 0 0 0.6em rgba(var(--text-colour), 0.5);
+
+	// colour
+
+	&.text-black-- {
+		--text-colour: #{$black};
+	}
+
+	&.text-blue-- {
+		--text-colour: #{$blue};
+	}
+
+	&.text-green-- {
+		--text-colour: #{$green};
+	}
+
+	&.text-orange-- {
+		--text-colour: #{$orange};
+	}
+
+	&.text-red-- {
+		--text-colour: #{$red};
+	}
+
+	&.text-white-- {
+		--text-colour: #{$white};
+	}
+
+	&.text-yellow-- {
+		--text-colour: #{$yellow};
+	}
+
+	&.text-reviewsy-black-- {
+		--text-colour: #{$reviewsy-black};
+	}
+	
+	&.text-reviewsy-blue-- {
+		--text-colour: #{$reviewsy-blue};
+	}
+	
+	&.text-reviewsy-green-- {
+		--text-colour: #{$reviewsy-green};
+	}
+	
+	&.text-reviewsy-orange-- {
+		--text-colour: #{$reviewsy-orange};
+	}
+	
+	&.text-reviewsy-red-- {
+		--text-colour: #{$reviewsy-red};
+	}
+	
+	&.text-reviewsy-white-- {
+		--text-colour: #{$reviewsy-white};
+	}
+	
+	&.text-reviewsy-yellow-- {
+		--text-colour: #{$reviewsy-yellow};
 	}
 }
 
-// ---- Link
+// ---- disabled
 
-.link {
-	&:hover {
-		text-decoration: underline;
+.disabled {
+	opacity: 0.35 !important;
+	pointer-events: none !important;
+}
+
+// ---- Card
+
+.image {
+	border-radius: 2px;
+}
+
+.card {
+	--bg-1: #{$white};
+	--bg-2: #{$white};
+	--bg-a1: 0;
+	--bg-a2: 0.05;
+	--bg-deg: 90deg;
+	--bd: #{$white};
+	--bd-a: 0;
+	--bd-w: 0em;
+	--bd-r: 0.03em;
+	@include swish;
+	top: 0;
+	position: relative;
+	background: linear-gradient(
+		var(--bg-deg),
+		rgba(var(--bg-1), var(--bg-a1)),
+		rgba(var(--bg-2), var(--bg-a2))
+	);
+	border: var(--bd-w) solid rgba(var(--bd), var(--bd-a));
+	border-radius: var(--bd-r);
+
+	&.no-hover--:hover {
+		// cursor: url('/images/commons/cursors/default.png'), auto;
 	}
 
-	// @include clickable;
+	&.moveup-- {
+		&:hover {
+			z-index: 2;
+		}
+	}
+
+	&.fill-- {
+		--bg-a1: 1;
+		--bg-a2: 1;
+	}
+
+	// colour
+
+	&.black-- {
+		--bg-1: #{$black};
+		--bg-2: #{$black};
+		--bd: #{$black};
+	}
+
+	&.blue-- {
+		--bg-1: #{$blue};
+		--bg-2: #{$blue};
+		--bd: #{$blue};
+	}
+
+	&.green-- {
+		--bg-1: #{$green};
+		--bg-2: #{$green};
+		--bd: #{$green};
+	}
+
+	&.orange-- {
+		--bg-1: #{$orange};
+		--bg-2: #{$orange};
+		--bd: #{$orange};
+	}
+
+	&.red-- {
+		--bg-1: #{$red};
+		--bg-2: #{$red};
+		--bd: #{$red};
+	}
+
+	&.white-- {
+		--bg-1: #{$white};
+		--bg-2: #{$white};
+		--bd: #{$white};
+	}
+
+	&.yellow-- {
+		--bg-1: #{$yellow};
+		--bg-2: #{$yellow};
+		--bd: #{$yellow};
+	}
+
+	&.reviewsy-black-- {
+		--bg-1: #{$reviewsy-black};
+		--bg-2: #{$reviewsy-black};
+		--bd: #{$reviewsy-black};
+	}
+	
+	&.reviewsy-blue-- {
+		--bg-1: #{$reviewsy-blue};
+		--bg-2: #{$reviewsy-blue};
+		--bd: #{$reviewsy-blue};
+	}
+	
+	&.reviewsy-green-- {
+		--bg-1: #{$reviewsy-green};
+		--bg-2: #{$reviewsy-green};
+		--bd: #{$reviewsy-green};
+	}
+	
+	&.reviewsy-orange-- {
+		--bg-1: #{$reviewsy-orange};
+		--bg-2: #{$reviewsy-orange};
+		--bd: #{$reviewsy-orange};
+	}
+	
+	&.reviewsy-red-- {
+		--bg-1: #{$reviewsy-red};
+		--bg-2: #{$reviewsy-red};
+		--bd: #{$reviewsy-red};
+	}
+	
+	&.reviewsy-white-- {
+		--bg-1: #{$reviewsy-white};
+		--bg-2: #{$reviewsy-white};
+		--bd: #{$reviewsy-white};
+	}
+	
+	&.reviewsy-yellow-- {
+		--bg-1: #{$reviewsy-yellow};
+		--bg-2: #{$reviewsy-yellow};
+		--bd: #{$reviewsy-yellow};
+	}
+}
+
+// window
+
+.window {
+	@include toggleable;
+	position: fixed;
+	overflow: auto;
+	top: 0;
+	left: 0;
+	width: calc(100% - 2em * 2);
+	height: calc(100% - 2em * 2);
+	padding: 2em;
+	background-color: rgba($black-hex, 0.93);
+	z-index: $zi-window;
+}
+
+// .window-inner {
+// 	overflow: auto;
+// 	max-height: calc(100% - 2em * 2 - $wrapper-gutter * 2);
+// 	width: calc(100% - 1em * 2 - $wrapper-gutter * 2);
+// 	max-width: calc(100% - 1em * 2 - $wrapper-gutter * 2);
+// 	padding: 1em;
+// }
+
+// .window-close {
+// 	padding: 0.3em 0.65em 0.2em;
+// 	--bg-a-1: 0.05;
+// 	--bg-a-2: 0.1;
+// 	@include hover-forward(1.08);
+
+// 	> div {
+// 		font-size: 0.9em;
+// 		font-weight: bold;
+// 	}
+// }
+
+.bg {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	// background-image: url('/images/backgrounds/default-1.png');
+	background-size: cover;
+	background-position: center;
+	opacity: 1;
 }

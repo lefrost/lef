@@ -3,13 +3,7 @@
 }
 
 @mixin clickable {
-	transition: filter 0.2s;
-	cursor: pointer;
-	@include swish;
-
-	&:hover {
-		filter: invert(20%);
-	}
+	// cursor: url('/images/commons/cursors/hover.png'), pointer;
 }
 
 @mixin background {
@@ -24,8 +18,20 @@
 @mixin wrapper {
 	width: calc(100% - #{$wrapper-gutter} * 2);
 	max-width: $wrapper-width;
-	padding: 0 $wrapper-gutter;
+	padding: $wrapper-gutter;
 	margin: 0 auto;
+}
+
+@mixin toggleable {
+	@include swish;
+
+	&:not(.toggled--) {
+		display: none;
+	}
+
+	&:not(.visible--) {
+		opacity: 0;
+	}
 }
 
 @mixin pixel-art {
@@ -104,6 +110,7 @@
 	> div,
 	> img,
 	> span,
+	> input,
 	> :global(a),
 	> :global(div),
 	> :global(img) {
@@ -118,6 +125,7 @@
 	> div,
 	> img,
 	> span,
+	> input,
 	> :global(a),
 	> :global(div),
 	> :global(img) {
@@ -132,6 +140,7 @@
 	> div,
 	> img,
 	> span,
+	> input,
 	> :global(a),
 	> :global(div),
 	> :global(img) {
@@ -145,6 +154,7 @@
 	> div,
 	> img,
 	> span,
+	> input,
 	> :global(a),
 	> :global(div),
 	> :global(img) {
@@ -159,6 +169,7 @@
 	> div,
 	> img,
 	> span,
+	> input,
 	> :global(a),
 	> :global(div),
 	> :global(img) {
@@ -173,10 +184,91 @@
 	> div,
 	> img,
 	> span,
+	> input,
 	> :global(a),
 	> :global(div),
 	> :global(img) {
 		margin-left: $parent-mg;
 		margin-right: $parent-mg;
 	}
+}
+
+@mixin hover-forward($scale) {
+	&:not(.no-hover--):hover {
+		transform: scale(#{$scale});
+	}
+}
+
+@mixin hover-up($em) {
+	&:not(.no-hover--) {
+		position: relative;
+		top: 0;
+	
+		&:hover {
+			top: $em;
+			filter: saturate(90%);
+		}
+	}
+}
+
+@mixin card-background($colour-1, $alpha-1, $colour-2, $alpha-2, $degree) {
+	background: linear-gradient($degree, rgba($colour-1, $alpha-1), rgba($colour-2, $alpha-2));
+}
+
+@mixin card-border($width, $colour, $alpha) {
+	border: $width solid rgba($colour, $alpha);
+}
+
+// text
+
+@mixin custom-text {
+	font-family: $ff-custom;
+	text-transform: uppercase;
+	letter-spacing: 0.02em;
+	line-height: 1em;
+}
+
+// card
+
+// @mixin custom-card {
+// 	--bg-1: #{$default-black};
+// 	--bg-2: #{$default-black};
+// 	--bg-a1: 0.6;
+// 	--bg-a2: 0.8;
+// 	--bd-r: 0.3em;
+// 	// --bd: #{$default-white};
+// 	--bd-a: 0.1;
+// 	--bd-w: 0.14em;
+// 	box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.5);
+// 	@include hover-forward(1.04);
+// }
+
+// animation
+
+@mixin pulse-once($colour-hex)  {
+	animation: pulse-once-animation 0.5s;
+
+	@keyframes pulse-once-animation {
+    0% {
+      box-shadow: 0em 0em 0em 0em rgba($colour-hex, 0.3);
+    }
+
+    100% {
+      box-shadow: 0em 0em 0.8em 0.8em rgba($colour-hex, 0);
+    }
+  }
+}
+
+@mixin pulse($colour-hex)  {
+	animation: pulse-animation 1s infinite;
+
+	@keyframes pulse-animation {
+    0% {
+      box-shadow: 0em 0em 0em 0em rgba($colour-hex, 0.3);
+    }
+
+    100% {
+      box-shadow: 0em 0em 0.8em 0.8em rgba($colour-hex, 0);
+    }
+  }
 }
