@@ -1,37 +1,46 @@
 {
-  "name": "ollesvelke",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
-    "check": "svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
-    "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
-  },
-  "devDependencies": {
-    "@sveltejs/adapter-auto": "next",
-    "@sveltejs/kit": "next",
-    "@sveltejs/vite-plugin-svelte": "^3.0.0",
-    "@typescript-eslint/eslint-plugin": "^4.31.1",
-    "@typescript-eslint/parser": "^4.31.1",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-svelte": "^2.39.0",
-    "prettier": "^2.4.1",
-    "prettier-plugin-svelte": "^2.10.1",
-    "svelte": "^4.0.0",
-    "svelte-check": "^3.4.3",
-    "svelte-preprocess": "^5.0.3",
-    "tslib": "^2.3.1",
-    "typescript": "^5.0.0"
-  },
-  "type": "module",
-  "dependencies": {
-    "moment": "^2.29.4",
-    "moment-timezone": "^0.5.40",
-    "sass": "^1.49.0"
-  }
+	"name": "ollesvelke",
+	"version": "0.0.1",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build",
+		"package": "vite package",
+		"preview": "vite preview",
+		"check": "svelte-check --tsconfig ./tsconfig.json",
+		"check:watch": "svelte-check --tsconfig ./tsconfig.json --watch",
+		"lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
+		"format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-vercel": "^4.0.0",
+		"@sveltejs/kit": "^2.0.0",
+		"@sveltejs/vite-plugin-svelte": "^3.0.0",
+		"@typescript-eslint/eslint-plugin": "^4.31.1",
+		"@typescript-eslint/parser": "^4.31.1",
+		"eslint": "^7.32.0",
+		"eslint-config-prettier": "^8.3.0",
+		"eslint-plugin-svelte": "^2.38.0",
+		"prettier": "^2.4.1",
+		"prettier-plugin-svelte": "^2.10.1",
+		"svelte": "^4.0.0",
+		"svelte-check": "^3.4.3",
+		"svelte-preprocess": "^5.0.3",
+		"tslib": "^2.3.1",
+		"typescript": "^5.0.0"
+	},
+	"type": "module",
+	"dependencies": {
+		"@rollup/plugin-inject": "^5.0.2",
+		"@solana/wallet-adapter-wallets": "^0.19.20",
+		"@solana/web3.js": "^1.78.3",
+		"@svelte-on-solana/wallet-adapter-core": "^1.0.11-alpha.0",
+		"@svelte-on-solana/wallet-adapter-ui": "^1.0.21-alpha.0",
+		"@sveltejs/adapter-auto": "^3.2.0",
+		"buffer": "^6.0.3",
+		"moment": "^2.29.4",
+		"moment-timezone": "^0.5.39",
+		"sass": "^1.49.0",
+		"speakeasy": "^2.0.0",
+		"tweetnacl": "^1.0.3"
+	}
 }
