@@ -291,9 +291,26 @@
   
   $: if (selected_type) {
     try {
-      // tba: update review output
+      review_output = ``;
+
+      if (selected_type) {
+        for (let section of selected_type.sections) {
+          if (section.fragments.some(f => f.value.trim())) {
+            review_output += `\r\n\r\n${section.emoji}`;
+
+            for (let fragment of section.fragments) {
+              if (fragment.value.trim()) {
+                review_output += ` ${fragment.value.trim() || ``}`;
+              }
+            }
+          }
+        }
+      }
+
+      review_output = review_output.replace(`\r\n\r\n`, ``);
     } catch (e) {
       console.log(e);
+      review_output = ``;
     }
   }
 
@@ -301,7 +318,7 @@
 
   onMount(() => {
     try {
-      // tba
+      // none
     } catch (e) {
       console.log(e);
     }
@@ -325,10 +342,233 @@
   // none
 </script>
 
-<!-- tba: html -->
+<!-- reviewsy container -->
+<div class="container  stretch--  col--  col-centre--  text  text-reviewsy-white--  reviewsy-container">
+  <!-- reviewsy -->
+  <div class="container  col--  col-centre--  reviewsy">
+    <!-- top -->
+    <div class="container  stretch--  col--  col-centre--  r-top">
+      <!-- top -> heading -->
+      <div class="r-to__heading">
+        Reviewsy
+      </div>
+
+      <!-- top -> types -->
+      <div class="container  stretch--  col--  col-centre--  r-to__types">
+        {#each TYPES as TYPE}
+          <!-- type -->
+          <div
+            class="container  stretch--  row--  row-centre--  text  text-reviewsy-white--  card  reviewsy-white--  r-to__type"
+            class:r-selected--={selected_type && (selected_type.code === TYPE.code)}
+            on:click={() => {
+              try {
+                selected_type = utils.clone(TYPE);
+              } catch (e) {
+                console.log(e);
+              }
+            }}
+          >
+            <div>{TYPE.name || `n/a`}</div>
+          </div>
+        {/each}
+      </div>
+    </div>
+
+    {#if selected_type}
+      <!-- sections -->
+      <div class="container  stretch--  col--  col-centre--  r-sections">
+        {#each selected_type.sections as section, si}
+          <!-- section -->
+          <div class="container  stretch--  col--  col-centre--  text  text-reviewsy-{section.colour || `white`}--  r-section">
+            <!-- section -> name -->
+            <div class="r-se__name">
+              {section.name || `n/a`}
+            </div>
+
+            <!-- section -> fragments -->
+            <div class="container  stretch--  col--  col-centre--  r-se__fragments">
+              {#each section.fragments as fragment, fi}
+                <!-- fragment -->
+                <div
+                  class="container  stretch--  col--  r-se__fragmment"
+                  class:r-left--={fi % 2 === 0}
+                  class:r-right--={fi % 2 !== 0}  
+                >
+                  <!-- fragment -> label -->
+                  <div class="r-se__fr-label">
+                    {fragment.label || `n/a`}
+                  </div>
+
+                  <!-- fragment -> input -->
+                  <textarea
+                    bind:value={selected_type.sections[si].fragments[fi].value}
+                    placeholder={fragment.placeholder || `n/a`}
+                    class="container  grow--  stretch--  text  text-reviewsy-{section.colour}--  card  reviewsy-{section.colour}--  r-se__fr-input"
+                  />
+                </div>
+              {/each}
+            </div>
+          </div>
+        {/each}
+      </div>
+
+      {#if review_output.trim()}
+        <!-- output -->
+        <div class="container  stretch--  col--  col-centre--  r-output">
+          <!-- output -> button (copy) -->
+          <div 
+            class="container  stretch--  row--  row-centre--  text  text-reviewsy-green--  card  reviewsy-green--  r-ou__button"
+            on:click={() => {
+              try {
+                utils.copyToClipboard(review_output);
+              } catch (e) {
+                console.log(e);
+              }
+            }}  
+          > 
+            <div>Copy to clipboard</div>
+          </div>
+
+          <!-- output -> review -->
+          <div class="container  stretch--  col--  text  text-reviewsy-green--  card  reviewsy-green--  r-ou__review">
+            <!-- output -> review -> label -->
+            <div class="r-ou__re-label">
+              Full review
+            </div>
+
+            <!-- output -> review -> text -->
+            <div class="r-ou__re-text">
+              {review_output || ``}
+            </div>
+          </div>
+        </div>
+      {/if}
+    {/if}
+  </div>
+</div>
 
 <style lang="scss">  
 	@import '../../assets/scss/all.scss';
 
-  // tba: css
+  // reviewsy container
+
+  .reviewsy-container {
+    // tba
+  }
+
+  // reviewsy
+
+  .reviewsy {
+    // tba
+  }
+
+  // top
+
+  .r-top {
+    // tba
+  }
+
+  // top -> heading
+
+  .r-to__heading {
+    // tba
+  }
+
+  // top -> types
+
+  .r-to__types {
+    // tba
+  }
+
+  // top -> type
+
+  .r-to__type.card {
+    // tba
+
+    > div {
+      // tba
+    }
+
+    &.r-selected-- {
+      // tba
+
+      > div {
+        // tba
+      }
+    }
+  }
+
+  // sections
+
+  .r-sections {
+    // tba
+  }
+
+  // section
+
+  .r-section {
+    // tba
+  }
+
+  // section -> fragments
+
+  .r-se__fragments {
+    // tba
+  }
+
+  // section -> fragment
+
+  .r-se__fragment {
+    // tba
+
+    &.r-left-- {
+      // tba
+    }
+
+    &.r-right-- {
+      // tba
+    }
+  }
+
+  .r-se__fr-label {
+    // tba
+  }
+
+  .r-se__fr-input.card {
+    // tba
+
+    &::placeholder {
+      // tba
+    }
+  }
+
+  // output
+
+  .r-output {
+    // tba
+  }
+
+  // output -> button
+  
+  .r-ou__button.card {
+    // tba
+
+    > div {
+      // tba
+    }
+  }
+
+  // output -> review
+
+  .r-ou__review.card {
+    // tba
+  }
+
+  .r-ou__re-label {
+    // tba
+  }
+
+  .r-ou__re-text {
+    // tba
+  }
 </style>
