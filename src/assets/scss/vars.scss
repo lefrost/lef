@@ -20,7 +20,20 @@
 
 @font-face {
 	font-family: 'Belanosima';
-	src: url('/fonts/Belanosima.ttf') format('truetype');
+	src: url('/fonts/Belanosima/Belanosima-Regular.ttf') format('truetype');
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'Belanosima';
+	src: url('/fonts/Belanosima/Belanosima-SemiBold.ttf') format('truetype');
+	font-weight: 500;
+}
+
+@font-face {
+	font-family: 'Belanosima';
+	src: url('/fonts/Belanosima/Belanosima-Bold.ttf') format('truetype');
+	font-weight: bold;
 }
 
 $wrapper-gutter: 20px;

@@ -44,7 +44,7 @@
           name: `Details`,
           emoji: `🎯`,
           colour: `red`,
-          fragmments: [
+          fragments: [
             {
               label: `Facade`,
               placeholder: `eg. the cafe has a brick facade lined with greenery, easily spottable from the street.`,
@@ -138,6 +138,11 @@
               value: ``
             },
             {
+              label: `Key system`,
+              placeholder: `eg. your room key is a normal door key, which you should leave at the front desk when leaving the hotel.`,
+              value: ``
+            },
+            {
               label: `Cleaning system`,
               placeholder: `eg. room cleaning can be expected, and you paste a magnetic strip on your door to request it.`,
               value: ``
@@ -197,6 +202,11 @@
             {
               label: `Amenities`,
               placeholder: `eg. towels, pyjamas and bathroom amenities are provided in the room.`,
+              value: ``
+            },
+            {
+              label: `Wifi`,
+              placeholder: `eg. the wifi is strong, with decent upload speed.`,
               value: ``
             }
           ]
@@ -296,7 +306,7 @@
       if (selected_type) {
         for (let section of selected_type.sections) {
           if (section.fragments.some(f => f.value.trim())) {
-            review_output += `\r\n\r\n${section.emoji}`;
+            review_output += `<br /><br />${section.emoji || ``}`;
 
             for (let fragment of section.fragments) {
               if (fragment.value.trim()) {
@@ -307,7 +317,7 @@
         }
       }
 
-      review_output = review_output.replace(`\r\n\r\n`, ``);
+      review_output = review_output.replace(`<br /><br />`, ``); // note: replace only first instance of newline
     } catch (e) {
       console.log(e);
       review_output = ``;
@@ -390,7 +400,7 @@
               {#each section.fragments as fragment, fi}
                 <!-- fragment -->
                 <div
-                  class="container  stretch--  col--  r-se__fragmment"
+                  class="container  stretch--  col--  r-se__fragment"
                   class:r-left--={fi % 2 === 0}
                   class:r-right--={fi % 2 !== 0}
                   class:r-highlighted--={fragment.value.trim()}
@@ -421,7 +431,7 @@
             class="container  stretch--  row--  row-centre--  text  text-reviewsy-green--  card  reviewsy-green--  r-ou__button"
             on:click={() => {
               try {
-                utils.copyToClipboard(review_output);
+                utils.copyToClipboard(review_output.replaceAll(`<br />`, `\r\n`));
               } catch (e) {
                 console.log(e);
               }
@@ -439,7 +449,7 @@
 
             <!-- output -> review -> text -->
             <div class="r-ou__re-text">
-              {review_output || ``}
+              {@html review_output || ``}
             </div>
           </div>
         </div>
@@ -452,7 +462,7 @@
 	@import '../../assets/scss/all.scss';
 
   @mixin reviewsy-heading {
-    letter-spacing: 0.5em;
+    letter-spacing: 0.3em;
     text-transform: uppercase;
   }
 
@@ -466,10 +476,11 @@
   // reviewsy
 
   .reviewsy {
-    padding: 0 $wrapper-gutter;
+    padding: 2em 0;
+    padding-bottom: 8em;
     width: calc(100% - $wrapper-gutter);
-    max-width: calc(350px - $wrapper-gutter);
-    @include parent-col-bottom(1.6em);
+    max-width: calc(300px - $wrapper-gutter);
+    @include parent-col-bottom(3em);
 
     * {
       font-family: $ff-belanosima;
@@ -485,7 +496,7 @@
   // top -> heading
 
   .r-to__heading {
-    font-size: 1.6em;
+    font-size: 0.7em;
     @include reviewsy-heading;
   }
 
@@ -505,7 +516,7 @@
     --bg-a1: 0;
     --bg-a2: 0;
     --bd-a: 0.2;
-    --bd-w: 0.13em;
+    --bd-w: 0.1em;
 
     > div {
       font-size: 0.95em;
@@ -526,7 +537,7 @@
   // sections
 
   .r-sections {
-    @include parent-col-bottom(1em);
+    @include parent-col-bottom(2em);
   }
 
   // section
@@ -539,14 +550,14 @@
 
   .r-se__name {
     @include reviewsy-heading;
-    font-size: 0.95em;
+    font-size: 0.65em;
   }
 
   // section -> fragments
 
   .r-se__fragments {
     padding-top: 0.6em;
-    @include parent-col-bottom(-0.3em);
+    @include parent-col-bottom(-1.1em);
   }
 
   // section -> fragment
@@ -555,12 +566,12 @@
     position: relative;
 
     &.r-left-- {
-      margin-left: -0.2em;
+      margin-left: -0.3em;
       transform: rotate(1deg);
     }
 
     &.r-right-- {
-      margin-left: 0.2em;
+      margin-right: -0.3em;
       transform: rotate(-1deg);
     }
 
@@ -575,24 +586,27 @@
 
   .r-se__fr-label {
     @include reviewsy-heading;
-    font-size: 0.65em;
+    font-size: 0.6em;
     opacity: 0.5;
     position: absolute;
-    top: calc(0.8em / 0.65em);
-    left: calc(0.8em / 0.65em);
+    top: 1.2em;
+    left: 1.2em;
+    z-index: 1;
   }
 
   .r-se__fr-input.card {
     @include card-fill(#{$reviewsy-black});
-    padding: calc(0.8em / 0.75em);
-    padding-top: calc(1.4em / 0.75em);
     font-size: 0.75em;
-    height: 10em;
-    --bd-w: 0.13em;
+    padding: 0.85em;
+    padding-top: 1.9em;
+    height: 5em;
+    --bd-w: 0.1em;
     --bd-a: 0.2;
+    resize: none;
 
     &::placeholder {
-      opacity: 0.3;
+      opacity: 0.15;
+      color: inherit;
     }
   }
 
@@ -607,8 +621,9 @@
   .r-ou__button.card {
     --bg-a1: 0.2;
     --bg-a2: 0.2;
-    --bd-w: 0.13em;
+    --bd-w: 0.1em;
     --bd-a: 1;
+    padding: 0.35em 0.6em 0.3em;
 
     > div {
       font-size: 1.05em;
@@ -618,20 +633,20 @@
   // output -> review
 
   .r-ou__review.card {
-    padding: 0.8em;
+    padding: 0.7em;
     @include card-fill(#{$reviewsy-black});
-    --bd-w: 0.13em;
+    --bd-w: 0.1em;
     --bd-a: 1;
   }
 
   .r-ou__re-label {
     @include reviewsy-heading;
-    font-size: 0.65em;
+    font-size: 0.6em;
     opacity: 0.5;
   }
 
   .r-ou__re-text {
     padding-top: 0.4em;
-    font-size: 0.75em;
+    font-size: 0.7em;
   }
 </style>
