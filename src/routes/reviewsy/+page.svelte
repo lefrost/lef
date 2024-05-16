@@ -76,6 +76,11 @@
               value: ``
             },
             {
+              label: `Menu`,
+              placeholder: `eg. a separate English menu is available on request.`,
+              value: ``
+            },
+            {
               label: `Smoking`,
               placeholder: `eg. smoking is permitted.`,
               value: ``
