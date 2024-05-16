@@ -18,6 +18,11 @@
 	src: url('/fonts/Barndomsfirkante.ttf') format('truetype');
 }
 
+@font-face {
+	font-family: 'Belanosima';
+	src: url('/fonts/Belanosima.ttf') format('truetype');
+}
+
 $wrapper-gutter: 20px;
 $wrapper-width: 1200px;
 
@@ -59,6 +64,7 @@ $bp-xl: 1280px;
 $ff-base: 'Corben';
 $ff-alpha: 'Corben';
 $ff-style: 'Corben';
+$ff-belanosima: 'Belanosima'; 
 
 // $white-box-shadow: 0 0 50px -20px rgba($white-hex, 0.2);
 // $white-drop-shadow: 0 0 50px rgba($white-hex, 0.2);

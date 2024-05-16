@@ -392,7 +392,8 @@
                 <div
                   class="container  stretch--  col--  r-se__fragmment"
                   class:r-left--={fi % 2 === 0}
-                  class:r-right--={fi % 2 !== 0}  
+                  class:r-right--={fi % 2 !== 0}
+                  class:r-highlighted--={fragment.value.trim()}
                 >
                   <!-- fragment -> label -->
                   <div class="r-se__fr-label">
@@ -450,50 +451,74 @@
 <style lang="scss">  
 	@import '../../assets/scss/all.scss';
 
+  @mixin reviewsy-heading {
+    letter-spacing: 0.5em;
+    text-transform: uppercase;
+  }
+
   // reviewsy container
 
   .reviewsy-container {
-    // tba
+    background-color: #{$reviewsy-black-hex};
+    padding: 1em 0;
   }
 
   // reviewsy
 
   .reviewsy {
-    // tba
+    padding: 0 $wrapper-gutter;
+    width: calc(100% - $wrapper-gutter);
+    max-width: calc(350px - $wrapper-gutter);
+    @include parent-col-bottom(1.6em);
+
+    * {
+      font-family: $ff-belanosima;
+    }
   }
 
   // top
 
   .r-top {
-    // tba
+    // none
   }
 
   // top -> heading
 
   .r-to__heading {
-    // tba
+    font-size: 1.6em;
+    @include reviewsy-heading;
   }
 
   // top -> types
 
   .r-to__types {
-    // tba
+    padding-top: 0.8em;
+    @include parent-col-bottom(0.4em);
   }
 
   // top -> type
 
   .r-to__type.card {
-    // tba
+    padding: 0.35em 0.6em 0.3em;
+    @include hover-forward(1.04);
+    @include clickable;
+    --bg-a1: 0;
+    --bg-a2: 0;
+    --bd-a: 0.2;
+    --bd-w: 0.13em;
 
     > div {
-      // tba
+      font-size: 0.95em;
+      opacity: 0.5;
     }
 
     &.r-selected-- {
-      // tba
+      --bd-a: 0.5;
+      --bg-a1: 0.2;
+      --bg-a2: 0.2;
 
       > div {
-        // tba
+        opacity: 1;
       }
     }
   }
@@ -501,74 +526,112 @@
   // sections
 
   .r-sections {
-    // tba
+    @include parent-col-bottom(1em);
   }
 
   // section
 
   .r-section {
-    // tba
+    // none
+  }
+
+  // section -> name
+
+  .r-se__name {
+    @include reviewsy-heading;
+    font-size: 0.95em;
   }
 
   // section -> fragments
 
   .r-se__fragments {
-    // tba
+    padding-top: 0.6em;
+    @include parent-col-bottom(-0.3em);
   }
 
   // section -> fragment
 
   .r-se__fragment {
-    // tba
+    position: relative;
 
     &.r-left-- {
-      // tba
+      margin-left: -0.2em;
+      transform: rotate(1deg);
     }
 
     &.r-right-- {
-      // tba
+      margin-left: 0.2em;
+      transform: rotate(-1deg);
+    }
+
+    &.r-highlighted-- {
+      // none
+
+      > .r-se__fr-input.card {
+        --bd-a: 1;
+      }
     }
   }
 
   .r-se__fr-label {
-    // tba
+    @include reviewsy-heading;
+    font-size: 0.65em;
+    opacity: 0.5;
+    position: absolute;
+    top: calc(0.8em / 0.65em);
+    left: calc(0.8em / 0.65em);
   }
 
   .r-se__fr-input.card {
-    // tba
+    @include card-fill(#{$reviewsy-black});
+    padding: calc(0.8em / 0.75em);
+    padding-top: calc(1.4em / 0.75em);
+    font-size: 0.75em;
+    height: 10em;
+    --bd-w: 0.13em;
+    --bd-a: 0.2;
 
     &::placeholder {
-      // tba
+      opacity: 0.3;
     }
   }
 
   // output
 
   .r-output {
-    // tba
+    @include parent-col-bottom(0.5em);
   }
 
   // output -> button
   
   .r-ou__button.card {
-    // tba
+    --bg-a1: 0.2;
+    --bg-a2: 0.2;
+    --bd-w: 0.13em;
+    --bd-a: 1;
 
     > div {
-      // tba
+      font-size: 1.05em;
     }
   }
 
   // output -> review
 
   .r-ou__review.card {
-    // tba
+    padding: 0.8em;
+    @include card-fill(#{$reviewsy-black});
+    --bd-w: 0.13em;
+    --bd-a: 1;
   }
 
   .r-ou__re-label {
-    // tba
+    @include reviewsy-heading;
+    font-size: 0.65em;
+    opacity: 0.5;
   }
 
   .r-ou__re-text {
-    // tba
+    padding-top: 0.4em;
+    font-size: 0.75em;
   }
 </style>
