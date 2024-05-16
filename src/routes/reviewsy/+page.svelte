@@ -112,7 +112,7 @@
             },
             {
               label: `Staff`,
-              placeholder: `eg. staff was nice and professional.`,
+              placeholder: `eg. staff was nice and professional, and front desk could speak decent English.`,
               value: ``
             },
             {
@@ -166,27 +166,27 @@
             },
             {
               label: `Air conditioning`,
-              placeholder: `eg. air conditioning works well, with responsive temperature control.`,
+              placeholder: `eg. the air conditioning works well, with responsive temperature control.`,
               value: ``
             },
             {
               label: `Window`,
-              placeholder: `eg. window can be opened for fresh air.`,
+              placeholder: `eg. the window can be opened for fresh air.`,
               value: ``
             },
             {
               label: `Lighting`,
-              placeholder: `eg. yellow lights in the room make for good ambiance.`,
+              placeholder: `eg. the yellow lights in the room make for good ambiance.`,
               value: ``
             },
             {
               label: `Bathroom layout`,
-              placeholder: `eg. bathroom has a good and decently-sized layout.`,
+              placeholder: `eg. the bathroom has a good and decently-sized layout.`,
               value: ``
             },
             {
               label: `Water heating`,
-              placeholder: `eg. water heating works well, and the tub's temperature control uses a convenient one-knob design.`,
+              placeholder: `eg. the water heating works well, and the tub's temperature control uses a convenient one-knob design.`,
               value: ``
             },
             {
