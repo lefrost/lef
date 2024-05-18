@@ -250,7 +250,7 @@
             },
             {
               label: `Shops`,
-              placeholder: `a 7-11 convenient shop is across the street.`,
+              placeholder: `a 7-11 convenience shop is across the street.`,
               value: ``
             },
             {
@@ -315,7 +315,7 @@
 
             for (let fragment of section.fragments) {
               if (fragment.value.trim()) {
-                review_output += ` ${fragment.value.trim() || ``}`;
+                review_output += `${(review_output.length === 0) ? `` : ` `}${fragment.value.trim() || ``}`;
               }
             }
           }
