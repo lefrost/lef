@@ -138,6 +138,11 @@
 			name: `LinkedIn`,
 			url: `https://linkedin.com/in/lefrost`
 		},
+    {
+      code: `hoyolab`,
+      name: `HoYoLAB`,
+      url: `https://www.hoyolab.com/accountCenter/postList?id=19336852`
+    },
 		{
 			code: `myanimelist`,
 			name: `MyAnimeList`,
@@ -168,6 +173,11 @@
 			name: `Steam`,
 			url: `https://steamcommunity.com/id/lefrst`
 		},
+    {
+      code: `teamfight_tactics`,
+      name: `Teamfight Tactics`,
+      url: `https://mobalytics.gg/tft/profile/sg/lefrost-chan/overview`
+    },
 		// {
 		// 	code: `threads`,
 		// 	name: `Threads`,
@@ -295,7 +305,7 @@
 					class="container  stretch--  row--  row-left--  l-item"
 				>
 					<div>{ITEM.name || `n/a`}</div>
-					<div>{ITEM.label || `n/a`}</div>
+					<div class="visibility  sm-up--">{ITEM.label || `n/a`}</div>
 					<div class="container  grow--  row--  row-right--">{ITEM.date || `n/a`}</div>
 			</a>
 			{/each}
@@ -308,7 +318,7 @@
 			Visited 380+ cafes. Active 280+ day streak of
 			<a href={(LINKS.find(L => L.code === `github`) || {}).url || null} target="_blank">coding</a>.
 			Played 4,600+ games of
-			<a href={(LINKS.find(L => L.code === `chess`) || {}).url || null} target="_blank">chess</a>.
+			<a href={(LINKS.find(L => L.code === `chess_com`) || {}).url || null} target="_blank">chess</a>.
 			Played ∞ hours of
 			<a href={(LINKS.find(L => L.code === `steam`) || {}).url || null} target="_blank">games</a>.
 			Listened to 78,000+ tracks' worth of
@@ -343,7 +353,7 @@
 
 	.l-bio {
 		text-align: left;
-		font-size: 1.6em;
+		font-size: 1.45em;
 		
 		> a {
 			@include swish;
@@ -351,7 +361,7 @@
 			text-decoration: underline;
 
 			&:hover {
-				opacity: 0.5;
+				opacity: 0.8;
 			}
 		}
 	}
@@ -370,7 +380,8 @@
 		@include clickable;
 
 		> div {
-			font-size: 1.7em;
+			font-size: 1.45em;
+      white-space: nowrap;
 
 			&:nth-of-type(1) {
 				width: 28em;
@@ -378,12 +389,13 @@
 			}
 
 			&:nth-of-type(2) {
-				width: 28em;
+				width: 20em;
 				padding-right: 0.5em;
+        opacity: 0.5;
 			}
 
 			&:nth-of-type(3) {
-				// none
+				width: 9em;
 			}
 		}
 
@@ -395,7 +407,7 @@
 	// other
 
 	.l-other {
-		font-size: 1.25em;
+		font-size: 1.32em;
 		text-align: left;
 
 		> a {
@@ -404,7 +416,7 @@
 			text-decoration: underline;
 
 			&:hover {
-				opacity: 0.5;
+				opacity: 0.8;
 			}
 		}
 	}
@@ -412,8 +424,8 @@
 	// links
 
 	.l-links {
-		padding-top: 2em;
-		font-size: 1.1em;
+		padding-top: 1.5em;
+		font-size: 1.2em;
 		opacity: 0.5;
 		text-align: left;
 
@@ -423,7 +435,7 @@
 			text-decoration: underline;
 
 			&:hover {
-				opacity: 0.5;
+				opacity: 0.8;
 			}
 		}
 	}

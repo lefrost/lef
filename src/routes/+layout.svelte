@@ -168,13 +168,13 @@
 			colour="red"
 		/> -->
 	{:else}
-		<Header />
+		<!-- <Header /> -->
 		<slot />
 		
 		<!-- note: filler gap -->
-		<div class="container  grow--  col--" />
+		<!-- <div class="container  grow--  col--" /> -->
 
-		<Footer />
+		<!-- <Footer /> -->
 	{/if}
 </div>
 
@@ -184,7 +184,7 @@
 	// layout
 
 	.layout {
-		font-size: 12px; 
+		font-size: 10px; 
 
 
 		@media (min-width: $bp-sm) {
