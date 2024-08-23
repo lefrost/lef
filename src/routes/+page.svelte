@@ -1,255 +1,430 @@
 <script lang="ts">
-  const ITEMS = [
-    {
-      code: `SUAVE.LA`,
-      name: `Suave.la`,
-      description: `Play skill-based games for money, with wagers powered by the Solana blockchain.`,
-      link_text: `Website`,
-      link_url: `https://suave.la`
-    },
-    {
-      code: `@SUAVESEALS`,
-      name: `Suave Seals`,
-      description: `Solana NFT collection that earns revenue from the Suave Arcade. Art created in collaboration with <a href="https://twitter.com/cdercer" target="_blank" rel="noreferrer"><u>Crsy</u></a>.`,
-      link_text: `Marketplace`,
-      link_url: `https://tensor.trade/trade/suaveseals`
-    },
-    {
-      code: `BULLISH.LOL`,
-      name: `Bullish.lol`,
-      description: `Simplified allowlist collabs for NFT projects and communities.`,
-      link_text: `Website`,
-      link_url: `https://bullish.lol`
-    },
-    {
-      code: `@BULLISHTSUYONEKO`,
-      name: `Bullish Tsuyoneko`,
-      description: `Solana NFT collection that gains allowlist opportunities from Bullish.lol. Art created in collaboration with <a href="https://twitter.com/cdercer" target="_blank" rel="noreferrer"><u>Crsy</u></a>.`,
-      link_text: `Marketplace`,
-      link_url: `https://tensor.trade/trade/tsuyoneko`
-    },
-    {
-      code: `INTHELOOP.FYI`,
-      name: `Loop.fyi`,
-      description: `NFT news & social as-a-service. Content produced in collaboration with <a href="https://twitter.com/the_sol_army" target="_blank" rel="noreferrer"><u>The Sol Army</u></a>.`,
-      link_text: `Website`,
-      link_url: `https://intheloop.fyi`
-    },
-  ];
+	// imports
 
-  let toggled_item_index = -1;
+	import { Ollesvege } from 'ollesvege';
+	import _ from 'lodash';
+	import { onDestroy, onMount } from 'svelte';
+	import Loader from '../components/Loader.svelte';
+	import Placeholder from '../components/Placeholder.svelte';
+	import * as api from '../assets/js/api';
+
+	// exports
+	// none
+
+	// consts
+
+	const IN_MAINTENANCE = false;
+
+	const ITEMS = [
+		{
+			code: `buggy_so`,
+			name: `Buggy.so`,
+			label: `Development`,
+			date: `Aug 2024`,
+			url: `https://buggy.so`
+		},
+		{
+			code: `tsuyoneko`,
+			name: `@tsuyoneko`,
+			label: `NFTs`,
+			date: `Jan 2024`,
+			url: `https://tensor.trade/trade/tsuyoneko`
+		},
+		{
+			code: `bullish_lol`,
+			name: `Bullish.lol`,
+			label: `Cryptocurrency`,
+			date: `Dec 2023`,
+			url: `https://bullish.lol`
+		},
+		{
+			code: `intheloop_fyi`,
+			name: `Intheloop.fyi`,
+			label: `Cryptocurrency`,
+			date: `Mar 2022`,
+			url: null
+		},
+		{
+			code: `suaveseals`,
+			name: `@suaveseals`,
+			label: `NFTs`,
+			date: `Apr 2021`,
+			url: `https://tensor.trade/trade/suaveseals`
+		},
+		{
+			code: `suave_la`,
+			name: `Suave.la`,
+			label: `Cryptocurrency`,
+			date: `Jan 2021`,
+			url: `https://suave.la`
+		},
+		{
+			code: `clients`,
+			name: `+5 years of client work`,
+			label: `Various`,
+			date: `2017-2021`,
+			url: null
+		}
+	];
+
+	const LINKS = [
+		{
+			code: `anilist`,
+			name: `Anilist`,
+			url: `https://anilist.co/user/lefrost`
+		},
+		{
+			code: `behance`,
+			name: `Behance`,
+			url: `https://behance.net/ollefrost`
+		},
+		{
+			code: `chess_com`,
+			name: `Chess.com`,
+			url: `https://chess.com/member/lefroste`
+		},
+		{
+			code: `discord`,
+			name: `Discord`,
+			url: `https://discord.bio/lefrost`
+		},
+		{
+			code: `dribbble`,
+			name: `Dribbble`,
+			url: `https://dribbble.com/lefrost`
+		},
+		{
+			code: `email`,
+			name: `email`,
+			url: `mailto:elcasaboxi@gmail.com`
+		},
+		// {
+		// 	code: `facebook`,
+		// 	name: `Facebook`,
+		// 	url: `tba`
+		// },
+		{
+			code: `github`,
+			name: `GitHub`,
+			url: `https://github.com/lefrost`
+		},
+		{
+			code: `gravatar`,
+			name: `Gravatar`,
+			url: `https://gravatar.com/ollefrost`
+		},
+		{
+			code: `hacker_news`,
+			name: `Hacker News`,
+			url: `https://news.ycombinator.com/user?id=lefrost`
+		},
+		// {
+		// 	code: `instagram`,
+		// 	name: `Instagram`,
+		// 	url: `tba`
+		// },
+		{
+			code: `kitsu`,
+			name: `Kitsu`,
+			url: `https://kitsu.app/users/ollefrost`
+		},
+		{
+			code: `last_fm`,
+			name: `Last.fm`,
+			url: `https://last.fm/user/lefrst`
+		},
+		{
+			code: `linkedin`,
+			name: `LinkedIn`,
+			url: `https://linkedin.com/in/lefrost`
+		},
+		{
+			code: `myanimelist`,
+			name: `MyAnimeList`,
+			url: `https://myanimelist.net/profile/ollefrost`
+		},
+		{
+			code: `npm`,
+			name: `npm`,
+			url: `https://npmjs.com/~lefrost`
+		},
+		{
+			code: `product_hunt`,
+			name: `Product Hunt`,
+			url: `https://producthunt.com/@lefrost`
+		},
+		{
+			code: `reddit`,
+			name: `Reddit`,
+			url: `https://reddit.com/user/ollefrost`
+		},
+		{
+			code: `stackoverflow`,
+			name: `StackOverflow`,
+			url: `https://stackoverflow.com/users/8919391/lefrost`
+		},
+		{
+			code: `steam`,
+			name: `Steam`,
+			url: `https://steamcommunity.com/id/lefrst`
+		},
+		// {
+		// 	code: `threads`,
+		// 	name: `Threads`,
+		// 	url: `tba`
+		// },
+		{
+			code: `twitter`,
+			name: `Twitter / X`,
+			url: `https://twitter.com/lefrost`
+		},
+		// {
+		// 	code: `youtube`,
+		// 	name: `YouTube`,
+		// 	url: `tba`
+		// }
+	];
+
+	// vars
+
+	let is_active = false;
+	let data;
+	let user;
+
+	// dynamics
+	// none
+
+	// mount
+
+	onMount(async () => {
+		if (IN_MAINTENANCE) {
+			return;
+		}
+		
+		if (!is_active) {
+			is_active = true;
+		}
+
+		await getData();
+	});
+
+	onDestroy(() => {
+		try {
+			is_active = false;	
+		} catch (e) {
+			console.log(e);
+		}
+	});
+
+	// jobs
+
+	let jobs = [];
+	// let jobs = [`get_data`];
+
+	async function getData() {
+		try {
+			jobs.push(`get_data`);
+			jobs = jobs;
+
+			// user = await api.getCurrentUser() || null;
+
+			// if (!(user && user.id)) {
+			// 	user = null;
+			// }
+
+			// data = await api.restPost({
+			// 	url: `load`,
+			// 	payload: {
+			// 		type: `landing_main`,
+			// 		obj: {
+			// 			user_id: user ? user.id : ``
+			// 		}
+			// 	}
+			// }) || null;
+			
+			data = `test`;
+
+			if (data) {
+				// todo: data
+			}
+
+			jobs = jobs.filter(j => j !== `get_data`);
+		} catch (e) {
+			console.log(e);
+		}
+	}
+
+	// execs
+	// none
+
+	// funcs
+	// none
 </script>
 
-<!-- lefrost -->
-<div class="container  grow--  col--  text  text-white--  lefrost">
-  <!--  name -->
-  <div class="l-name">
-    LEFROST
-  </div>
+<!-- landing -->
+<div
+	class="container  grow--  col--  col-centre--  col-middle--  text  text-white--  landing"
+>
+	{#if IN_MAINTENANCE}
+		<Placeholder
+			is_loading={false}
+			text="In maintenance."
+			colour="red"
+		/>
+	{:else}
+		<!-- note: sample component - https://github.com/lefrost/ollesvege -->
+		<!-- <Ollesvege
+			sample_text="Testing Ollesvege component"
+		/> -->
 
-  <!-- heading -->
-  <div class="l-heading">
-    Portfolio as a<br />
-    solo founder.
-  </div>
+		<!-- bio -->
+		<div class="l-bio">
+			LEFROST: Solo founder, fullstack software engineer, multidisciplinary designer. Founded 25+ projects. Have built in AI, academia, art, cryptocurrency, desktop apps, development, ecommerce, education, entertainment, F&B, fintech, gaming, leisure, insurance, mobile apps, music, news, NFTs, productivity, search engines, telco, travel, web apps, and ∞ more niches. Extensive experience working with both large multinational teams and completely solo, both on-site and remotely. Bachelor at 17, now early 20s. Working globally and remotely while perpetually solo travelling. Shipping multiple startups every month. Selected portfolio below. Reach through
+			<a href={(LINKS.find(L => L.code === `twitter`) || {}).url || null} target="_blank">Twitter / X</a>,
+			<a href={(LINKS.find(L => L.code === `discord`) || {}).url || null} target="_blank">Discord</a>, or
+			<a href={(LINKS.find(L => L.code === `email`) || {}).url || null} target="_blank">email</a>.
+		</div>
 
-  <!-- items -->
-  <div class="container  stretch--  col--  l-items">
-    {#each ITEMS as ITEM, ii}
-      <!-- item -->
-      <div 
-        class="container  stretch--  col--  l-item"
-        class:l-toggled--={toggled_item_index === ii}
-        on:click={() => {
-          try {
-            if (toggled_item_index === ii) {
-              toggled_item_index = -1;
-            } else {
-              toggled_item_index = ii;
-            }
-          } catch (e) {
-            console.log(e);
-          }
-        }}
-      >
-        <!-- item -> code -->
-        <div class="l-it__code">
-          {@html ITEM.code || ``}
-        </div>
+		<!-- items -->
+		<div class="container  grow--  stretch--  col--  l-items">
+			{#each ITEMS as ITEM}
+				<!-- item -->
+				<a
+					href={ITEM.url || null}
+					target="_blank"
+					class="container  stretch--  row--  row-left--  l-item"
+				>
+					<div>{ITEM.name || `n/a`}</div>
+					<div>{ITEM.label || `n/a`}</div>
+					<div class="container  grow--  row--  row-right--">{ITEM.date || `n/a`}</div>
+			</a>
+			{/each}
+		</div>
 
-        <!-- item -> name -->
-        <div class="l-it__name">
-          {@html ITEM.name || ``}
-        </div>
+		<!-- other -->
+		<div class="l-other">
+			Off hours: Watched 5,900+ episodes of
+			<a href={(LINKS.find(L => L.code === `anilist`) || {}).url || null} target="_blank">anime</a>.
+			Visited 380+ cafes. Active 280+ day streak of
+			<a href={(LINKS.find(L => L.code === `github`) || {}).url || null} target="_blank">coding</a>.
+			Played 4,600+ games of
+			<a href={(LINKS.find(L => L.code === `chess`) || {}).url || null} target="_blank">chess</a>.
+			Played ∞ hours of
+			<a href={(LINKS.find(L => L.code === `steam`) || {}).url || null} target="_blank">games</a>.
+			Listened to 78,000+ tracks' worth of
+			<a href={(LINKS.find(L => L.code === `last_fm`) || {}).url || null} target="_blank">jazz</a>.
+			Active 370+ day streak of learning foreign languages. Read 15,000+ chapters of
+			<a href={(LINKS.find(L => L.code === `anilist`) || {}).url || null}>manga</a>.
+			Visited 120+ cities on my travels. Travelled to all 47 prefectures of Japan in one trip. Lived with 6+ cats. Getting 7+ hours of sleep every night.
+		</div>
 
-        {#if toggled_item_index === ii}
-          <!-- item -> description -->
-          <div class="l-it__description">
-            {@html ITEM.description || ``}
-          </div>
-
-          <!-- item -> link -->
-          <a
-            href={ITEM.link_url || null}
-            target="_blank"
-            rel="noreferrer"
-            on:click|stopPropagation={() => {
-              // none
-            }}
-            class="l-it__link"
-          >
-            {@html ITEM.link_text || ``} →
-          </a>
-        {/if}
-      </div>
-    {/each}
-  </div>
-
-  <!-- text -->
-  <div class="l-text">
-    Quiet
-		cafes,
-		casual
-		<a href="https://chess.com/member/lefroste" target="_blank" rel="noreferrer">chess</a>,
-		and classy
-		<a href="https://last.fm/user/lefrst" target="_blank" rel="noreferrer">jazz</a>.
-		Many episodes of
-		<a href="https://anilist.co/user/lefrost/animelist" target="_blank" rel="noreferrer">anime</a>,
-		many chapters of
-		<a href="https://anilist.co/user/lefrost/mangalist" target="_blank" rel="noreferrer">manga</a>,
-		many hours of
-		gaming,
-		many miles of
-		travel.
-		And in between, there's pragmatic
-		<a href="https://github.com/lefrost" target="_blank" rel="noreferrer">code</a>,
-		experimental design,
-		and a couple commitments to show for it.
-		<br /><br />
-		I'm on
-		<a href="https://discords.com/bio/p/lefrost" target="_blank" rel="noreferrer">Discord</a>
-		and
-		<a href="https://twitter.com/lefrost" target="_blank" rel="noreferrer">Twitter</a>,
-		<br /><br />
-		As of May 2024.
-  </div>
-
-  <!-- quote -->
-  <div class="l-quote">
-    難波津に 咲くやこの花 冬ごもり 今を春べと 咲くやこの花。
-  </div>
+		<!-- links -->
+		<div class="l-links">
+			Links:
+			{#each LINKS as LINK, li}
+				<a href={LINK.url || null} target="_blank">{LINK.name || `n/a`}</a>{(li < (LINKS.length - 1)) ? `, ` : ``}
+			{/each}
+		</div>
+	{/if}
 </div>
 
 <style lang="scss">
 	@import '../assets/scss/all.scss';
 
-  // lefrost
+	// landing
 
-  .lefrost {
-    padding: 3em $wrapper-gutter 6em;
-    width: calc(100% - $wrapper-gutter * 2);
-    max-width: calc(350px - $wrapper-gutter * 2);
-  }
+	.landing {
+		width: calc(100% - 2em * 2);
+		max-width: 1000px;
+		padding: 3.5em 0 5em;
+	}
 
-  // name
+	// bio
 
-  .l-name {
-    font-size: 0.65em;
-    opacity: 0.4;
-    letter-spacing: 0.1em;
-  }
+	.l-bio {
+		text-align: left;
+		font-size: 1.6em;
+		
+		> a {
+			@include swish;
+			@include clickable;
+			text-decoration: underline;
 
-  // heading
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+	}
 
-  .l-heading {
-    font-size: 1.4em;
-    padding-top: 0.4em;
-  }
+	// items
 
-  // items
+	.l-items {
+		padding-top: 4em;
+		padding-bottom: 8em;
+	}
 
-  .l-items {
-    padding: 2em 0;
-    @include parent-col-bottom(0.5em);
-  }
+	// item
 
-  // item
+	.l-item {
+		@include swish;
+		@include clickable;
 
-  .l-item {
-    padding: 0.5em 0.5em;
-    background-color: rgba($white-hex, 0);
-    border: 0.08em solid rgba($white-hex, 0.2);
-    @include swish;
-    cursor: pointer;
+		> div {
+			font-size: 1.7em;
 
-    &.l-toggled-- {
-      background-color: rgba($white-hex, 0.05);
-      border: 0.08em solid rgba($white-hex, 0.4);
-    }
+			&:nth-of-type(1) {
+				width: 28em;
+				padding-right: 0.5em;
+			}
 
-    &:hover {
-      background-color: rgba($white-hex, 0.1);
-      border: 0.08em solid rgba($white-hex, 1);
-    }
-  }
+			&:nth-of-type(2) {
+				width: 28em;
+				padding-right: 0.5em;
+			}
 
-  // item -> code
+			&:nth-of-type(3) {
+				// none
+			}
+		}
 
-  .l-it__code {
-    font-size: 0.45em;
-    opacity: 0.3;
-    letter-spacing: 0.1em;
-  }
+		&:hover {
+			opacity: 0.8;
+		}
+	}
 
-  // item -> name
+	// other
 
-  .l-it__name {
-    font-size: 0.9em;
-    padding-top: 0.1em;
-  }
+	.l-other {
+		font-size: 1.25em;
+		text-align: left;
 
-  // item -> description
+		> a {
+			@include swish;
+			@include clickable;
+			text-decoration: underline;
 
-  .l-it__description {
-    font-size: 0.7em;
-    opacity: 0.5;
-    padding: 0.6em 0;
-  }
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+	}
 
-  // item -> link
+	// links
 
-  .l-it__link {
-    font-size: 0.7em;
-    // text-decoration: underline;
-    @include swish;
+	.l-links {
+		padding-top: 2em;
+		font-size: 1.1em;
+		opacity: 0.5;
+		text-align: left;
 
-    &:hover {
-      opacity: 0.8;
-    }
-  }
+		> a {
+			@include swish;
+			@include clickable;
+			text-decoration: underline;
 
-  // text
-
-  .l-text {
-    font-size: 0.72em;
-    line-height: 1.2em;
-    color: rgba($white-hex, 0.6);
-    > a {
-      color: rgba($white-hex, 0.9);
-      // text-decoration: underline;
-      @include swish;
-      
-      &:hover {
-        opacity: 0.8;
-      }
-    }
-  }
-
-  // quote
-
-  .l-quote {
-    font-size: 0.52em;
-    padding-top: 3em;
-    opacity: 0.2;
-  }
+			&:hover {
+				opacity: 0.5;
+			}
+		}
+	}
 </style>

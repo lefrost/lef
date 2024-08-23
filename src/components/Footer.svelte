@@ -1,15 +1,43 @@
-<div class="footer">By Léfrost</div>
+<script lang="ts">
+	// imports
+	// none
+
+	// exports
+	// none
+
+	// consts
+	// none
+
+	// vars
+	// none
+
+	// dynamics
+	// none
+
+	// mount
+	// none
+
+	// jobs
+	// none
+
+	// execs
+	// none
+
+	// funcs
+	// none
+</script>
+
+<!-- footer -->
+<div class="container  stretch--  row--  row-centre--  text  text-black--  footer">
+	<!-- todo: footer -->
+</div>
 
 <style lang="scss">
 	@import '../assets/scss/all.scss';
 
-	/* --- Footer --- */
+	// footer
 
 	.footer {
-		@include wrapper;
-		padding: $wrapper-gutter;
-		display: flex;
-		align-items: center;
-		justify-content: center;
+
 	}
 </style>

@@ -1,220 +1,301 @@
-// import { theme, user, sesh, light_mode } from './stores.js';
+import { socket, io_instances, theme, user, sesh, page_code } from './stores.js';
 import * as utils from './utils';
 
-import { browser } from '$app/env';
+// import { browser } from '$app/environment';
 
 const API_ENDPOINT = import.meta.env.VITE_API_ENDPOINT;
+const API_KEY = import.meta.env.VITE_API_KEY;
+const URL = import.meta.env.VITE_URL;
 
-// export async function checkSesh() {
-// 	let sesh = await getSesh();
-// 	if (!utils.isEmptyObj(await getCurrentUser())) {
-// 		if (sesh === `null` || Date.now() + 60 >= Number(sesh)) {
-// 			await setSesh(Date.now() + 60);
-// 			await setCurrentUser(
-// 				(
-// 					await get({ id: (await getCurrentUser()).id, type: `user` })
-// 				).data,
-// 				false
-// 			);
-// 		}
-// 	}
-// }
+export async function checkSesh() {
+	try {
+		let sesh_val = Number(await getSesh()) || 0;
+		if (!utils.isEmptyObj(await getCurrentUser())) {
+			if (utils.getTimestamp() < utils.alterTimestamp(`add`, 60, `minutes`, sesh_val)) {
+				sesh.set(utils.getTimestamp().toString());
+				await setCurrentUser(
+					(
+						await restPost({
+							url: `get`,
+							payload: {
+								type: `user`,
+								id: (await getCurrentUser()).id
+							},
+							all: true
+						})
+					).data,
+					false
+				);
+			} else {
+				await utils.wait(0.1);
+				await logout();
+			}
+		}
+	} catch (e) {
+		console.log(e);
+	}
+}
 
-// export function getSesh() {
-// 	return new Promise((resolve, reject) => {
-// 		sesh.subscribe((sesh) => {
-// 			if (browser) resolve(sesh);
-// 		});
-// 	});
-// }
+export async function getSocket() {
+	return new Promise((resolve, reject) => {
+		try {
+			socket.subscribe((socket) => {
+				// if (browser) resolve(socket);
+				resolve(socket);
+			});
+		} catch (e) {
+			console.log(e);
+			resolve(null);
+		}
+	});
+}
 
-// export function setSesh(val) {
+export async function setSocket(val) {
+	try {
+		socket.set(val);
+	} catch (e) {
+		console.log(e);
+	}
+}
+
+export async function getIoInstances() {
+	return new Promise((resolve, reject) => {
+		try {
+			io_instances.subscribe((io_instances) => {
+				// if (browser) resolve(JSON.parse(io_instances));
+				resolve(JSON.parse(io_instances));
+			});
+		} catch (e) {
+			console.log(e);
+			resolve(null);
+		}
+	});
+}
+
+export async function setIoInstances(val) {
+	try {
+		io_instances.set(JSON.stringify(val));
+	} catch (e) {
+		console.log(e);
+	}
+}
+
+export async function getSesh() {
+	return new Promise((resolve, reject) => {
+		try {
+			sesh.subscribe((sesh) => {
+				// if (browser) resolve(sesh);
+				resolve(sesh);
+			});
+		} catch (e) {
+			console.log(e);
+			resolve(null);
+		}
+	});
+}
+
+// export async function setSesh(val) {
 // 	sesh.set(val);
 // }
 
-// export function getTheme() {
-// 	return new Promise((resolve, reject) => {
-// 		theme.subscribe((val) => {
-// 			if (browser) resolve(val);
-// 		});
-// 	});
-// }
+export async function getPageCode() {
+	return new Promise((resolve, reject) => {
+		try {
+			page_code.subscribe((page_code) => {
+				// if (browser) resolve(page_code);
+				resolve(page_code);
+			});
+		} catch (e) {
+			console.log(e);
+			resolve(null);
+		}
+	});
+}
 
-// export function setTheme(val) {
-// 	theme.set(val);
-// }
+export async function setPageCode(val) {
+	try {
+		page_code.set(val);
+	} catch (e) {
+		console.log(e);
+	}
+}
 
-// export function getLightMode() {
-// 	return new Promise((resolve, reject) => {
-// 		light_mode.subscribe((val) => {
-// 			if (browser) resolve(val);
-// 		});
-// 	});
-// }
+export async function getCurrentUser() {
+	return new Promise((resolve, reject) => {
+		try {
+			user.subscribe((val) => {
+				loadCurrentUser(JSON.parse(val));
+				// if (browser) resolve(JSON.parse(val));
+				resolve(JSON.parse(val));
+			});
+		} catch (e) {
+			console.log(e);
+			resolve(null);
+		}
+	});
+}
 
-// export function setLightMode(val) {
-// 	light_mode.set(val);
-// }
+let loading_user = false;
 
-// export function getCurrentUser() {
-// 	return new Promise((resolve, reject) => {
-// 		user.subscribe((val) => {
-// 			loadCurrentUser(JSON.parse(val));
-// 			if (browser) resolve(JSON.parse(val));
-// 		});
-// 	});
-// }
+async function loadCurrentUser(user) {
+	try {
+		if (!loading_user && !utils.isEmptyObj(user)) {
+			loading_user = true;
 
-// let loading_user = false;
+			// let current_user_data = await get({ id: user.id, type: `user` });
+			let current_user_data = await restPost({
+				// socket: await getSocket(),
+				url: `get`,
+				payload: {
+					type: `user`,
+					id: user.id
+				},
+				all: true
+			});
 
-// async function loadCurrentUser(user) {
-// 	try {
-// 		if (!loading_user && !utils.isEmptyObj(user)) {
-// 			loading_user = true;
+			if (current_user_data.res === `ok`) {
+				let current_user = current_user_data.data;
+				setCurrentUser(current_user, false);
+			}
 
-// 			let current_user_data = await get({ id: user.id, type: `user` });
+			loading_user = false;
+		}
+	} catch (e) {
+		console.log(e);
+	}
+}
 
-// 			if (current_user_data.res === `ok`) {
-// 				let current_user = current_user_data.data;
-// 				setCurrentUser(current_user, false);
-// 			}
+export function setCurrentUser(new_user, reload) {
+	try {
+		sesh.set(utils.getTimestamp().toString());
+		user.set(JSON.stringify(new_user));
+	
+		if (reload) {
+			location.reload();
+		}
+	} catch (e) {
+		console.log(e);
+	}
+}
 
-// 			loading_user = false;
-// 		}
-// 	} catch (e) {
-// 		console.log(e);
-// 	}
-// }
-
-// export function setCurrentUser(new_user, reload) {
-// 	user.set(JSON.stringify(new_user));
-
-// 	if (reload) {
-// 		location.reload();
-// 	}
-// }
-
-// export async function logout() {
-// 	user.set(null);
-// 	location.reload();
-// }
-
-// ---- user
-
-// export async function editUser(data) {
-// 	let edited_user = await edit({ type: `user`, obj: data });
-// 	let current_user = await getCurrentUser();
-
-// 	// if the user is editing their own profile, refresh the user
-// 	if (!utils.isEmptyObj(current_user) && current_user.id === current_user.id) {
-// 		await utils.wait(0.5);
-
-// 		let user_data = await get({
-// 			type: `user`,
-// 			id: current_user.id
-// 		});
-
-// 		if (!utils.isEmptyObj(user_data) && user_data.res === `ok`) {
-// 			setCurrentUser(user_data.data, false);
-// 			// user.set(JSON.stringify(await getUser({ id: data.id })));
-// 		}
-// 	}
-
-// 	return edited_user;
-// }
+export async function logout() {
+	try {
+		sesh.set(null);
+		user.set(null);
+		location.reload();
+	} catch (e) {
+		console.log(e);
+	}
+}
 
 // ---- routes
 
-export async function post(d) {
-	return bePost(d);
+export async function restPost(d) {
+	try {
+		if (!d.skip_intiation_check) {
+			let initiated = (
+				await bePost({
+					url: `init`,
+					payload: {}
+				})
+			).cache;
+	
+			if (!initiated) {
+				location.reload();
+				return;
+			}
+		}
+	
+		return await bePost(d);
+	} catch (e) {
+		console.log(e);
+		return null;
+	}
 }
 
-export async function get(d) {
-	return bePost({
-		...d,
-		url: `get`,
-		all: true
-	});
-}
+// export async function post(d) {
+// 	try {
+// 		if (!d.skip_intiation_check) {
+// 			let initiated = (
+// 				await ioPost({
+// 					socket: await getSocket(),
+// 					url: `init`,
+// 					payload: {}
+// 				})
+// 			).cache;
+	
+// 			if (!initiated) {
+// 				location.reload();
+// 				return;
+// 			}
+// 		}
+	
+// 		return await ioPost(d);
+// 	} catch (e) {
+// 		console.log(e);
+// 		return null;
+// 	}
+// }
 
-export async function getMany(d) {
-	return bePost({
-		...d,
-		url: `get_many`,
-		all: true
-	});
-}
+// ---- io
 
-export async function add(d) {
-	return bePost({
-		...d,
-		url: `add`,
-		all: true
-	});
-}
-
-export async function edit(d) {
-	return bePost({
-		...d,
-		url: `edit`,
-		all: true
-	});
-}
-
-export async function del(d) {
-	return bePost({
-		...d,
-		url: `del`,
-		all: true
-	});
-}
-
-export async function pull(d) {
-	return bePost({
-		...d,
-		url: `pull`,
-		all: true
+async function ioPost(d) {
+	return await new Promise((resolve) => {
+		try {
+			d.socket.emit(
+				d.url,
+				{
+					...d.payload,
+				},
+				(r) => {
+					resolve(d.all ? r : r.data);
+				}
+			);
+		} catch (e) {
+			console.log(e);
+			resolve(null);
+		}
 	});
 }
 
 // ---- mongo
 
-// function beGet(endpoint) {
-// 	return new Promise((resolve, reject) => {
-// 		let url = `${API_ENDPOINT}${endpoint}`;
-
-// 		// console.log(url);
-
-// 		$.getJSON(url, function (data) {
-// 			resolve(data);
-// 		}).fail(() => resolve(null));
-// 	});
-// }
-
-async function bePost(obj) {
-	let config = {
-		method: `POST`,
-		headers: {
-			Accept: `application/json`,
-			'Content-Type': `application/json`
-		}
-	};
-
-	if (!utils.isEmptyObj(obj)) {
-		config.body = JSON.stringify(obj);
-	}
-
-	try {
-		let res = JSON.parse(await (await fetch(`${API_ENDPOINT}${obj.url}`, config)).text());
-
+async function beGet(endpoint) {
+	return new Promise((resolve, reject) => {
 		try {
-			return obj.all ? res : res.data;
+			let url = `${API_ENDPOINT}${endpoint}`;
+	
+			fetch(url)
+				.then(res => resolve(
+					(!res.ok) ? res.json() : null
+				));
 		} catch (e) {
 			console.log(e);
-			return res;
+			resolve(null);
 		}
+	});
+}
+
+async function bePost(d) {
+	try {
+		let config = {
+			method: `POST`,
+			headers: {
+				'origin': URL,
+				Accept: `application/json`,
+				'Content-Type': `application/json`,
+				'x_api_key': API_KEY
+			}
+		};
+
+		config.body = JSON.stringify({
+			...(d.payload || {}),
+		});
+
+		let res = JSON.parse(await (await fetch(`${API_ENDPOINT}${d.url}`, config)).text());
+
+		return d.all ? res : res.data;
 	} catch (e) {
-		console.log(`error`);
 		console.log(e);
 		return null;
 	}

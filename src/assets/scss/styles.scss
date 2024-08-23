@@ -34,9 +34,9 @@
 	outline: none;
 	margin: 0;
 	font-family: $ff-base;
-	line-height: 1;
+	line-height: 1.2em;
 	scroll-behavior: smooth;
-	letter-spacing: -0.02em;
+	letter-spacing: -0.04em;
 	-webkit-tap-highlight-color: transparent;
 }
 
@@ -47,7 +47,7 @@
 
 /* Track */
 :global(::-webkit-scrollbar-track) {
-	background: $black-hex;
+	background: $white-hex;
 }
 
 /* Handle */
@@ -322,33 +322,43 @@
 	&.text-yellow-- {
 		--text-colour: #{$yellow};
 	}
+}
 
-	&.text-reviewsy-black-- {
-		--text-colour: #{$reviewsy-black};
+// svg
+
+.svg {
+	--filter-colour: #{$white-filter};
+
+	filter: var(--filter-colour);
+
+	// colour
+
+	&.svg-black-- {
+		--filter-colour: #{$black-filter};
 	}
-	
-	&.text-reviewsy-blue-- {
-		--text-colour: #{$reviewsy-blue};
+
+	&.svg-blue-- {
+		--filter-colour: #{$blue-filter};
 	}
-	
-	&.text-reviewsy-green-- {
-		--text-colour: #{$reviewsy-green};
+
+	&.svg-green-- {
+		--filter-colour: #{$green-filter};
 	}
-	
-	&.text-reviewsy-orange-- {
-		--text-colour: #{$reviewsy-orange};
+
+	&.svg-orange-- {
+		--filter-colour: #{$orange-filter};
 	}
-	
-	&.text-reviewsy-red-- {
-		--text-colour: #{$reviewsy-red};
+
+	&.svg-red-- {
+		--filter-colour: #{$red-filter};
 	}
-	
-	&.text-reviewsy-white-- {
-		--text-colour: #{$reviewsy-white};
+
+	&.svg-white-- {
+		--filter-colour: #{$white-filter};
 	}
-	
-	&.text-reviewsy-yellow-- {
-		--text-colour: #{$reviewsy-yellow};
+
+	&.svg-yellow-- {
+		--filter-colour: #{$yellow-filter};
 	}
 }
 
@@ -374,7 +384,7 @@
 	--bd: #{$white};
 	--bd-a: 0;
 	--bd-w: 0em;
-	--bd-r: 0.3em;
+	--bd-r: 0.03em;
 	@include swish;
 	top: 0;
 	position: relative;
@@ -383,6 +393,7 @@
 		rgba(var(--bg-1), var(--bg-a1)),
 		rgba(var(--bg-2), var(--bg-a2))
 	);
+	@include bordered-background-card;
 	border: var(--bd-w) solid rgba(var(--bd), var(--bd-a));
 	border-radius: var(--bd-r);
 
@@ -444,48 +455,6 @@
 		--bg-2: #{$yellow};
 		--bd: #{$yellow};
 	}
-
-	&.reviewsy-black-- {
-		--bg-1: #{$reviewsy-black};
-		--bg-2: #{$reviewsy-black};
-		--bd: #{$reviewsy-black};
-	}
-	
-	&.reviewsy-blue-- {
-		--bg-1: #{$reviewsy-blue};
-		--bg-2: #{$reviewsy-blue};
-		--bd: #{$reviewsy-blue};
-	}
-	
-	&.reviewsy-green-- {
-		--bg-1: #{$reviewsy-green};
-		--bg-2: #{$reviewsy-green};
-		--bd: #{$reviewsy-green};
-	}
-	
-	&.reviewsy-orange-- {
-		--bg-1: #{$reviewsy-orange};
-		--bg-2: #{$reviewsy-orange};
-		--bd: #{$reviewsy-orange};
-	}
-	
-	&.reviewsy-red-- {
-		--bg-1: #{$reviewsy-red};
-		--bg-2: #{$reviewsy-red};
-		--bd: #{$reviewsy-red};
-	}
-	
-	&.reviewsy-white-- {
-		--bg-1: #{$reviewsy-white};
-		--bg-2: #{$reviewsy-white};
-		--bd: #{$reviewsy-white};
-	}
-	
-	&.reviewsy-yellow-- {
-		--bg-1: #{$reviewsy-yellow};
-		--bg-2: #{$reviewsy-yellow};
-		--bd: #{$reviewsy-yellow};
-	}
 }
 
 // window
@@ -523,6 +492,8 @@
 // 	}
 // }
 
+// bg
+
 .bg {
 	position: fixed;
 	top: 0;
@@ -534,4 +505,13 @@
 	background-size: cover;
 	background-position: center;
 	opacity: 1;
+}
+
+.bgbox {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-size: cover;
 }
