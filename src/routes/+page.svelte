@@ -144,6 +144,11 @@
       url: `https://www.hoyolab.com/accountCenter/postList?id=19336852`
     },
 		{
+			code: `medium`,
+			name: `Medium`,
+			url: `https://medium.com/@lefrost`
+		},
+		{
 			code: `myanimelist`,
 			name: `MyAnimeList`,
 			url: `https://myanimelist.net/profile/ollefrost`
