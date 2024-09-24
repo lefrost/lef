@@ -17,6 +17,20 @@
 
 	const ITEMS = [
 		{
+			code: `lounge_so`,
+			name: `Lounge.so`,
+			label: `Social`,
+			date: null,
+			url: null
+		},
+		{
+			code: `frens_my`,
+			name: `Frens.my`,
+			label: `Social`,
+			date: null,
+			url: null
+		},
+		{
 			code: `buggy_so`,
 			name: `Buggy.so`,
 			label: `Development`,
@@ -308,10 +322,11 @@
 					href={ITEM.url || null}
 					target="_blank"
 					class="container  stretch--  row--  row-left--  l-item"
+					class:l-faded--={!ITEM.date}
 				>
 					<div>{ITEM.name || `n/a`}</div>
 					<div class="visibility  sm-up--">{ITEM.label || `n/a`}</div>
-					<div class="container  grow--  row--  row-right--">{ITEM.date || `n/a`}</div>
+					<div class="container  grow--  row--  row-right--">{ITEM.date ? (ITEM.date || `n/a`) : `Now building`}</div>
 			</a>
 			{/each}
 		</div>
@@ -327,7 +342,7 @@
 			Played ∞ hours of
 			<a href={(LINKS.find(L => L.code === `steam`) || {}).url || null} target="_blank">games</a>.
 			Listened to 78,000+ tracks' worth of
-			<a href={(LINKS.find(L => L.code === `last_fm`) || {}).url || null} target="_blank">jazz</a>.
+			<a href={(LINKS.find(L => L.code === `last_fm`) || {}).url || null} target="_blank">jazz</a>.	 
 			Active 370+ day streak of learning foreign languages. Read 15,000+ chapters of
 			<a href={(LINKS.find(L => L.code === `anilist`) || {}).url || null}>manga</a>.
 			Visited 120+ cities on my travels. Travelled to all 47 prefectures of Japan in one trip. Lived with 6+ cats. Getting 7+ hours of sleep every night.
@@ -381,9 +396,6 @@
 	// item
 
 	.l-item {
-		@include swish;
-		@include clickable;
-
 		> div {
 			font-size: 1.45em;
       white-space: nowrap;
@@ -404,8 +416,23 @@
 			}
 		}
 
-		&:hover {
-			opacity: 0.8;
+		&:not(.l-faded--) {
+			@include swish;
+			@include clickable;
+
+			&:hover {
+				opacity: 0.8;
+			}
+		}
+
+		&.l-faded-- {
+			opacity: 0.35;
+
+			> div {
+				&:nth-of-type(3) {
+					opacity: 0.5;
+				}
+			}
 		}
 	}
 
