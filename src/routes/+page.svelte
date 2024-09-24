@@ -21,63 +21,72 @@
 			name: `Lounge.so`,
 			label: `Social`,
 			date: null,
-			url: null
+			url: null,
+			is_active: false
 		},
 		{
 			code: `frens_my`,
 			name: `Frens.my`,
 			label: `Social`,
 			date: null,
-			url: null
+			url: null,
+			is_active: false
 		},
 		{
 			code: `buggy_so`,
 			name: `Buggy.so`,
 			label: `Development`,
 			date: `Aug 2024`,
-			url: `https://buggy.so`
+			url: `https://buggy.so`,
+			is_active: true
 		},
 		{
 			code: `tsuyoneko`,
 			name: `@tsuyoneko`,
 			label: `NFTs`,
 			date: `Jan 2024`,
-			url: `https://tensor.trade/trade/tsuyoneko`
+			url: `https://tensor.trade/trade/tsuyoneko`,
+			is_active: true
 		},
 		{
 			code: `bullish_lol`,
 			name: `Bullish.lol`,
 			label: `Cryptocurrency`,
 			date: `Dec 2023`,
-			url: `https://bullish.lol`
+			url: `https://bullish.lol`,
+			is_active: true
 		},
 		{
 			code: `intheloop_fyi`,
 			name: `Intheloop.fyi`,
 			label: `Cryptocurrency`,
 			date: `Mar 2022`,
-			url: null
+			url: null,
+			is_active: false
 		},
 		{
 			code: `suaveseals`,
 			name: `@suaveseals`,
 			label: `NFTs`,
 			date: `Apr 2021`,
-			url: `https://tensor.trade/trade/suaveseals`
+			url: `https://tensor.trade/trade/suaveseals`,
+			is_active: true
 		},
 		{
 			code: `suave_la`,
 			name: `Suave.la`,
 			label: `Cryptocurrency`,
 			date: `Jan 2021`,
-			url: `https://suave.la`
+			url: `https://suave.la`,
+			is_active: true
 		},
 		{
 			code: `clients`,
 			name: `+5 years of client work`,
 			label: `Various`,
 			date: `2017-2021`,
-			url: null
+			url: null,
+			is_active: false
 		}
 	];
 
@@ -322,11 +331,14 @@
 					href={ITEM.url || null}
 					target="_blank"
 					class="container  stretch--  row--  row-left--  l-item"
-					class:l-faded--={!ITEM.date}
+					class:l-faded--={!ITEM.is_active}
 				>
 					<div>{ITEM.name || `n/a`}</div>
 					<div class="visibility  sm-up--">{ITEM.label || `n/a`}</div>
-					<div class="container  grow--  row--  row-right--">{ITEM.date ? (ITEM.date || `n/a`) : `Now building`}</div>
+					<div
+						class="container  grow--  row--  row-right--" 
+						class:l-faded--={!ITEM.date}
+					>{ITEM.date ? (ITEM.date || `n/a`) : `Now building`}</div>
 			</a>
 			{/each}
 		</div>
@@ -413,6 +425,10 @@
 
 			&:nth-of-type(3) {
 				width: 9em;
+
+				&.l-faded-- {
+					opacity: 0.5;
+				}
 			}
 		}
 
@@ -427,12 +443,6 @@
 
 		&.l-faded-- {
 			opacity: 0.35;
-
-			> div {
-				&:nth-of-type(3) {
-					opacity: 0.5;
-				}
-			}
 		}
 	}
 
