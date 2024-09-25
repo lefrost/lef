@@ -28,9 +28,9 @@
 			code: `frens_my`,
 			name: `Frens.my`,
 			label: `Social`,
-			date: null,
-			url: null,
-			is_active: false
+			date: `Sep 2024`,
+			url: `https://frens.my`,
+			is_active: true
 		},
 		{
 			code: `buggy_so`,
