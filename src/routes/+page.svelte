@@ -335,10 +335,7 @@
 				>
 					<div>{ITEM.name || `n/a`}</div>
 					<div class="visibility  sm-up--">{ITEM.label || `n/a`}</div>
-					<div
-						class="container  grow--  row--  row-right--" 
-						class:l-faded--={!ITEM.date}
-					>{ITEM.date ? (ITEM.date || `n/a`) : `Now building`}</div>
+					<div class="container  grow--  row--  row-right--">{ITEM.date ? (ITEM.date || `n/a`) : `Now building`}</div>
 			</a>
 			{/each}
 		</div>
@@ -425,10 +422,6 @@
 
 			&:nth-of-type(3) {
 				width: 9em;
-
-				&.l-faded-- {
-					opacity: 0.5;
-				}
 			}
 		}
 
