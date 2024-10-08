@@ -352,7 +352,7 @@
 			<a href={(LINKS.find(L => L.code === `steam`) || {}).url || null} target="_blank">games</a>.
 			Listened to 78,000+ tracks' worth of
 			<a href={(LINKS.find(L => L.code === `last_fm`) || {}).url || null} target="_blank">jazz</a>.	 
-			Active 420+ day streak of learning foreign languages. Read 15,000+ chapters of
+			Active 430+ day streak of learning foreign languages. Read 15,000+ chapters of
 			<a href={(LINKS.find(L => L.code === `anilist`) || {}).url || null}>manga</a>.
 			Visited 120+ cities on my travels. Travelled to all 47 prefectures of Japan in one trip. Lived with 6+ cats. Getting 7+ hours of sleep every night.
 		</div>
