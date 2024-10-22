@@ -344,7 +344,7 @@
 		<div class="l-other">
 			Off hours: Watched 5,900+ episodes of
 			<a href={(LINKS.find(L => L.code === `anilist`) || {}).url || null} target="_blank">anime</a>.
-			Visited 380+ cafes.
+			Visited 390+ cafes.
 			<!-- Active 280+ day streak of
 			<a href={(LINKS.find(L => L.code === `github`) || {}).url || null} target="_blank">coding</a>. -->
 			Played 4,600+ games of
