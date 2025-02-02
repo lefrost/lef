@@ -17,9 +17,9 @@
 
 	const ITEMS = [
 		{
-			code: `lounge_so`,
-			name: `Lounge.so`,
-			label: `Social`,
+			code: `glance_la`,
+			name: `Glance.la`,
+			label: `Cryptocurrency`,
 			date: null,
 			url: null,
 			is_active: false
