@@ -351,10 +351,10 @@
 			<a href={(LINKS.find(L => L.code === `chess_com`) || {}).url || null} target="_blank">chess</a>.
 			Played ∞ hours of
 			<a href={(LINKS.find(L => L.code === `steam`) || {}).url || null} target="_blank">games</a>.
-			Listened to 100,000+ tracks' worth of
+			Listened to 110,000+ tracks' worth of
 			<a href={(LINKS.find(L => L.code === `last_fm`) || {}).url || null} target="_blank">jazz</a>.	 
 			<!-- Active 430+ day streak of learning foreign languages. -->
-			Read 15,000+ chapters of
+			Read 16,000+ chapters of
 			<a href={(LINKS.find(L => L.code === `anilist`) || {}).url || null}>manga</a>.
 			Visited 200+ cities on my travels. Travelled to all 47 prefectures of Japan in one trip. Lived with 6+ cats. Getting 7+ hours of sleep every night.
 		</div>
