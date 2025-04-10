@@ -216,6 +216,11 @@
 			name: `Twitter / X`,
 			url: `https://twitter.com/lefrost`
 		},
+		{
+			code: `wikipedia`,
+			name: `Wikipedia`,
+			url: `https://en.wikipedia.org/wiki/User:Ollefrost`
+		},
 		// {
 		// 	code: `youtube`,
 		// 	name: `YouTube`,
