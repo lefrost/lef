@@ -17,12 +17,20 @@
 
 	const ITEMS = [
 		{
-			code: `glance_la`,
-			name: `Glance.la`,
-			label: `Cryptocurrency`,
+			code: `next`,
+			name: `What's next?`,
+			label: `...`,
 			date: null,
 			url: null,
 			is_active: false
+		},
+		{
+			code: `glance_la`,
+			name: `Glance.la`,
+			label: `Cryptocurrency`,
+			date: `Apr 2025`,
+			url: `https://glance.la`,
+			is_active: true
 		},
 		{
 			code: `frens_my`,
