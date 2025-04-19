@@ -330,8 +330,8 @@
 
 		<!-- bio -->
 		<div class="l-bio">
-			LEFROST: Solo founder, fullstack software engineer, multidisciplinary designer. Founded 5+ startups. Have built in art, cryptocurrency, desktop apps, development, ecommerce, education, entertainment, F&B, fintech, gaming, leisure, insurance, mobile apps, news, NFTs, productivity, search engines, social, telco, travel, web apps, and ∞ more niches. Extensive experience working with both large multinational teams and completely solo, both on-site and remotely. Bachelor at 17, now early 20s. Working globally and remotely while perpetually solo travelling.
-			<!-- Shipping multiple startups every month. -->
+			LEFROST: Solo founder, fullstack software engineer, multidisciplinary designer. Launched 5+ projects. Have built in art, cryptocurrency, desktop apps, development, ecommerce, education, entertainment, F&B, fintech, gaming, leisure, insurance, mobile apps, news, NFTs, productivity, search engines, social, telco, travel, web apps, and ∞ more niches. Extensive experience working with both large multinational teams and completely solo, both on-site and remotely. Bachelor at 17, now early 20s. Working globally and remotely while perpetually solo travelling.
+			<!-- Shipping multiple projects every month. -->
 			Selected portfolio below. Reach through
 			<a href={(LINKS.find(L => L.code === `twitter`) || {}).url || null} target="_blank">Twitter / X</a>,
 			<a href={(LINKS.find(L => L.code === `discord`) || {}).url || null} target="_blank">Discord</a>, or
