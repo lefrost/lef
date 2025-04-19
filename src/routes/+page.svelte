@@ -16,14 +16,14 @@
 	const IN_MAINTENANCE = false;
 
 	const ITEMS = [
-		{
-			code: `next`,
-			name: `What's next?`,
-			label: `...`,
-			date: null,
-			url: null,
-			is_active: false
-		},
+		// {
+		// 	code: `next`,
+		// 	name: `What's next?`,
+		// 	label: `...`,
+		// 	date: null,
+		// 	url: null,
+		// 	is_active: false
+		// },
 		{
 			code: `glance_la`,
 			name: `Glance.la`,
