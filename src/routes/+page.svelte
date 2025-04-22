@@ -366,19 +366,19 @@
 		<!-- other -->
 		<div class="l-other">
 			Off hours: Watched 6,000+ episodes of
-			<a href={(LINKS.find(L => L.code === `anilist`) || {}).url || null} target="_blank">anime</a>.
+			<a href={(LINKS.find(L => L.code === `anilist`) || {}).url || null} target="_blank" rel="noreferrer">anime</a>.
 			Visited 400+ cafes.
 			<!-- Active 280+ day streak of
 			<a href={(LINKS.find(L => L.code === `github`) || {}).url || null} target="_blank">coding</a>. -->
 			Played 4,000+ games of
-			<a href={(LINKS.find(L => L.code === `chess_com`) || {}).url || null} target="_blank">chess</a>.
+			<a href={(LINKS.find(L => L.code === `chess_com`) || {}).url || null} target="_blank" rel="noreferrer">chess</a>.
 			Played ∞ hours of
-			<a href={(LINKS.find(L => L.code === `steam`) || {}).url || null} target="_blank">games</a>.
+			<a href={(LINKS.find(L => L.code === `steam`) || {}).url || null} target="_blank" rel="noreferrer">games</a>.
 			Listened to 110,000+ tracks' worth of
-			<a href={(LINKS.find(L => L.code === `last_fm`) || {}).url || null} target="_blank">jazz</a>.	 
+			<a href={(LINKS.find(L => L.code === `last_fm`) || {}).url || null} target="_blank" rel="noreferrer">jazz</a>.	 
 			<!-- Active 430+ day streak of learning foreign languages. -->
 			Read 16,000+ chapters of
-			<a href={(LINKS.find(L => L.code === `anilist`) || {}).url || null}>manga</a>.
+			<a href={(LINKS.find(L => L.code === `anilist`) || {}).url || null} target="_blank" rel="noreferrer">manga</a>.
 			Visited 200+ cities on my travels. Travelled to all 47 prefectures of Japan in one trip. Lived with 6+ cats. Getting 7+ hours of sleep every night.
 		</div>
 
