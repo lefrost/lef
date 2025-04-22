@@ -25,6 +25,14 @@
 		// 	is_active: false
 		// },
 		{
+			code: `tabibito`,
+			name: `Tabibito by Lé`,
+			label: `Development`,
+			date: null,
+			url: `/tabibito`,
+			is_active: true
+		},
+		{
 			code: `glance_la`,
 			name: `Glance.la`,
 			label: `Cryptocurrency`,
@@ -344,7 +352,7 @@
 				<!-- item -->
 				<a
 					href={ITEM.url || null}
-					target="_blank"
+					target={(ITEM.url || ``).startsWith(`/`) ? null : `_blank`}
 					class="container  stretch--  row--  row-left--  l-item"
 					class:l-faded--={!ITEM.is_active}
 				>
