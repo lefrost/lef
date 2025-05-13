@@ -24,14 +24,14 @@
 		// 	url: null,
 		// 	is_active: false
 		// },
-		{
-			code: `tabibito`,
-			name: `Tabibito by Lé`,
-			label: `Development`,
-			date: null,
-			url: `/tabibito`,
-			is_active: true
-		},
+		// {
+		// 	code: `tabibito`,
+		// 	name: `Tabibito by Lé`,
+		// 	label: `Development`,
+		// 	date: null,
+		// 	url: `/tabibito`,
+		// 	is_active: true
+		// },
 		{
 			code: `glance_la`,
 			name: `Glance.la`,
