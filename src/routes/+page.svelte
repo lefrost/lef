@@ -208,6 +208,11 @@
 			url: `https://reddit.com/user/ollefrost`
 		},
 		{
+			code: `spotify`,
+			name: `Spotify`,
+			url: `https://open.spotify.com/user/gf4tasps3qmm1igne6th9wyj2?si=bd1117379a434290`
+		},
+		{
 			code: `stackoverflow`,
 			name: `StackOverflow`,
 			url: `https://stackoverflow.com/users/8919391/lefrost`
