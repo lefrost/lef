@@ -33,6 +33,14 @@
 		// 	is_active: true
 		// },
 		{
+			code: `Kyoku`,
+			name: `Kyoku`,
+			label: `Music`,
+			date: null,
+			url: null,
+			is_active: false
+		},
+		{
 			code: `glance_la`,
 			name: `Glance.la`,
 			label: `Cryptocurrency`,
