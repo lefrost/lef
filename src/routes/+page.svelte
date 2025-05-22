@@ -246,6 +246,11 @@
 			url: `https://twitter.com/lefrost`
 		},
 		{
+			code: `volt_fm`,
+			name: `Volt.fm`,
+			url: `https://volt.fm/lefrost`
+		},
+		{
 			code: `wikipedia`,
 			name: `Wikipedia`,
 			url: `https://en.wikipedia.org/wiki/User:Ollefrost`
