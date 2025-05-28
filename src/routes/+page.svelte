@@ -226,6 +226,11 @@
 			url: `https://stackoverflow.com/users/8919391/lefrost`
 		},
 		{
+			code: `stats_fm`,
+			name: `Stats.fm`,
+			url: `https://stats.fm/lefrost`
+		},
+		{
 			code: `steam`,
 			name: `Steam`,
 			url: `https://steamcommunity.com/id/lefrst`
