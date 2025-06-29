@@ -175,11 +175,11 @@
 		// 	name: `Instagram`,
 		// 	url: `tba`
 		// },
-		{
-			code: `kitsu`,
-			name: `Kitsu`,
-			url: `https://kitsu.app/users/ollefrost`
-		},
+		// {
+		// 	code: `kitsu`,
+		// 	name: `Kitsu`,
+		// 	url: `https://kitsu.app/users/ollefrost`
+		// },
 		{
 			code: `last_fm`,
 			name: `Last.fm`,
@@ -190,21 +190,21 @@
 			name: `LinkedIn`,
 			url: `https://linkedin.com/in/lefrost`
 		},
-    {
-      code: `hoyolab`,
-      name: `HoYoLAB`,
-      url: `https://www.hoyolab.com/accountCenter/postList?id=19336852`
-    },
+    // {
+    //   code: `hoyolab`,
+    //   name: `HoYoLAB`,
+    //   url: `https://www.hoyolab.com/accountCenter/postList?id=19336852`
+    // },
 		{
 			code: `medium`,
 			name: `Medium`,
 			url: `https://medium.com/@lefrost`
 		},
-		{
-			code: `myanimelist`,
-			name: `MyAnimeList`,
-			url: `https://myanimelist.net/profile/ollefrost`
-		},
+		// {
+		// 	code: `myanimelist`,
+		// 	name: `MyAnimeList`,
+		// 	url: `https://myanimelist.net/profile/ollefrost`
+		// },
 		{
 			code: `npm`,
 			name: `npm`,
