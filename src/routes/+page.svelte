@@ -263,7 +263,7 @@
 		{
 			code: `wikipedia`,
 			name: `Wikipedia`,
-			url: `https://en.wikipedia.org/wiki/User:Ollefrost`
+			url: `https://en.wikipedia.org/wiki/User:Lefrost`
 		},
 		// {
 		// 	code: `youtube`,
