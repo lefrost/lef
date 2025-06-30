@@ -402,7 +402,7 @@
 			<a href={(LINKS.find(L => L.code === `chess_com`) || {}).url || null} target="_blank" rel="noreferrer">chess</a>.
 			Played ∞ hours of
 			<a href={(LINKS.find(L => L.code === `steam`) || {}).url || null} target="_blank" rel="noreferrer">games</a>.
-			Listened to 110,000+ tracks' worth of
+			Listened to 130,000+ tracks' worth of
 			<a href={(LINKS.find(L => L.code === `last_fm`) || {}).url || null} target="_blank" rel="noreferrer">jazz</a>.	 
 			<!-- Active 430+ day streak of learning foreign languages. -->
 			Read 16,000+ chapters of
