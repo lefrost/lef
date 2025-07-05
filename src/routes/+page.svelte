@@ -240,11 +240,11 @@
 			name: `Steam`,
 			url: `https://steamcommunity.com/id/lefrst`
 		},
-    {
-      code: `teamfight_tactics`,
-      name: `Teamfight Tactics`,
-      url: `https://mobalytics.gg/tft/profile/sg/lefrost-chan/overview`
-    },
+    // {
+    //   code: `teamfight_tactics`,
+    //   name: `Teamfight Tactics`,
+    //   url: `https://mobalytics.gg/tft/profile/sg/lefrost-chan/overview`
+    // },
 		// {
 		// 	code: `threads`,
 		// 	name: `Threads`,
