@@ -32,14 +32,14 @@
 		// 	url: `/tabibito`,
 		// 	is_active: true
 		// },
-		{
-			code: `bulletin_now`,
-			name: `Bulletin.now`,
-			label: `Development`,
-			date: null,
-			url: null,
-			is_active: false
-		},
+		// {
+		// 	code: `bulletin_now`,
+		// 	name: `Bulletin.now`,
+		// 	label: `Development`,
+		// 	date: null,
+		// 	url: null,
+		// 	is_active: false
+		// },
 		{
 			code: `glance_la`,
 			name: `Glance.la`,
