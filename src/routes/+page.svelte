@@ -32,7 +32,7 @@
 		// 	url: `/tabibito`,
 		// 	is_active: true
 		// },
-		// {
+		// { // todo: bulletin
 		// 	code: `bulletin_now`,
 		// 	name: `Bulletin.now`,
 		// 	label: `Development`,
