@@ -41,12 +41,12 @@
 <!-- margin -->
 <div class="container  grow--  col--  margin">
   <!-- heading -->
-  <div class="m-heading">
+  <!-- <div class="m-heading">
     Margin calculator
-  </div>
+  </div> -->
 
   <!-- section (leverage) -->
-  <div class="container  stretch--  col--  m-section">
+  <div class="container  stretch--  col--  m-section  m-no-padding--">
     <!-- section (leverage) -> label -->
     <div class="m-se__label">
       Leverage x
@@ -153,6 +153,10 @@
 
   .m-section {
     padding-top: 1em;
+
+    &.m-no-padding {
+      padding-top: 0em;
+    }
   }
 
   .m-se__label {
